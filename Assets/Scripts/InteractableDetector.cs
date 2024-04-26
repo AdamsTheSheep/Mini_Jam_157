@@ -6,7 +6,21 @@ public class InteractableDetector : MonoBehaviour
 
 	new Transform transform;
 	bool isInteracting = false;
+	bool facingInteractable = false;
 	IInteractable lastInsteracted;
+
+	bool FacingInteractable
+	{
+		get { return facingInteractable; }
+		set
+		{
+			if (facingInteractable != value)
+			{
+				facingInteractable = value;
+				PlayerUI.instance.pointerImage.color = value ? Color.red : Color.white;
+			}
+		}
+	}
 
 	private void Awake()
 	{
@@ -15,21 +29,31 @@ public class InteractableDetector : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.E) && !isInteracting)
+		Ray r = new Ray(transform.position, transform.forward);
+		if (Physics.Raycast(r, out RaycastHit hitInfo, range))
 		{
-			Ray r = new Ray(transform.position, transform.forward);
-			if(Physics.Raycast(r, out RaycastHit hitInfo, range))
+			if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactable))
 			{
-				if(hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactable))
+				FacingInteractable = true;
+
+				if (!isInteracting && Input.GetKeyDown(KeyCode.E))
 				{
 					lastInsteracted = interactable;
 					interactable.Interact();
 					isInteracting = true;
 				}
 			}
+			else
+			{
+				FacingInteractable = false;
+			}
+		}
+		else
+		{
+			FacingInteractable = false;
 		}
 
-		if(isInteracting && lastInsteracted!=null && Input.GetKeyUp(KeyCode.E))
+		if (isInteracting && lastInsteracted != null && Input.GetKeyUp(KeyCode.E))
 		{
 			lastInsteracted.StopInteract();
 			isInteracting = false;

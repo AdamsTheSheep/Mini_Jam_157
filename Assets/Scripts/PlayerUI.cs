@@ -8,6 +8,7 @@ public class PlayerUI : MonoBehaviour
     public static PlayerUI instance;
 
     public Image interactableHoldProgressImage;
+    public Image pointerImage;
 
     private void Awake()
     {
