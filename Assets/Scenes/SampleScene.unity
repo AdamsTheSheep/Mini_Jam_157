@@ -2978,6 +2978,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonSpatializedSFXAudioSource: {fileID: 2088006335}
   loopAudioSource: {fileID: 2088006334}
+  randomAmbiantSounds: []
+  minTimeBetweenRandomSounds: 5
+  maxTimeBetweenRandomSounds: 20
 --- !u!1 &2108116532
 GameObject:
   m_ObjectHideFlags: 0
