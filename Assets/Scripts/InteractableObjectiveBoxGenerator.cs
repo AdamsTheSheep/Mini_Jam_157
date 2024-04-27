@@ -1,4 +1,6 @@
-public class InteractableObjectiveBoxGenerator : IInteractable
+using UnityEngine;
+
+public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 {
 	public void Interact()
 	{

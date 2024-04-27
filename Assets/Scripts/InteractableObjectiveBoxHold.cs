@@ -39,6 +39,8 @@ public class InteractableObjectiveBoxHold : MonoBehaviour, IInteractable
 	{
 		Debug.Log($"Stopped interacting with {gameObject.name}");
 
+		timer.isPaused = true;
+		Destroy(timer);
 		PlayerUI.instance.interactableHoldProgressImage.gameObject.SetActive(false);
 		PlayerUI.instance.holdInteractionText.gameObject.SetActive(false);
 	}
@@ -46,6 +48,7 @@ public class InteractableObjectiveBoxHold : MonoBehaviour, IInteractable
 	void SuccessfullyHold()
 	{
 		print($"{gameObject.name} successfully held");
+		PlayerUI.instance.FixSwitch();
 		//TODO : set objective as completed, repair ligths etc
 	}
 }

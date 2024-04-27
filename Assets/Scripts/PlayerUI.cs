@@ -61,6 +61,7 @@ public class PlayerUI : MonoBehaviour
                     if (generatorFill.fillAmount >= .99f)
                     {
                         usingGenerator = false;
+                        FixGenerator();
                     }
                     if (animationCurveValue > targetFill) inFillAnimation = false;
                 }
@@ -77,16 +78,20 @@ public class PlayerUI : MonoBehaviour
                     targetFill += generatorFillProgressPerSuccess;
                     inFillAnimation = true;
                 }
-                else generatorFill.fillAmount = 0f;
+                else
+                {
+                    generatorFill.fillAmount = 0f;
+                    targetFill = 0f;
+                }
             }
+		}
 
-            else if (Input.GetKeyDown(KeyCode.E))
-            {
-                usingGenerator = false;
-                generatorUI.SetActive(false);
-            }
-        }
-    }
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			usingGenerator = false;
+			generatorUI.SetActive(false);
+		}
+	}
 
     public void ShowWireTapeMissingMessage()
     {
@@ -138,4 +143,30 @@ public class PlayerUI : MonoBehaviour
 	{
 		SceneManager.LoadScene(2);
 	}
+
+    public void FixSwitch()
+    {
+        GameManager.playerHasFixedSwitch = true;
+        CheckAllFixed();
+	}
+
+	public void FixWires()
+    {
+        GameManager.playerHasFixedWires = true;
+        CheckAllFixed();
+	}
+
+	public void FixGenerator()
+    {
+        GameManager.playerHasFixedGenerator = true;
+        CheckAllFixed();
+    }
+
+    void CheckAllFixed()
+    {
+        if(GameManager.playerHasFixedSwitch && GameManager.playerHasFixedWires && GameManager.playerHasFixedGenerator)
+        {
+			GameManager.playerHasFixedAll = true;
+		}
+    }
 }
