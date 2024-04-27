@@ -36,6 +36,7 @@ public class InteractableHold : MonoBehaviour, IInteractable
 
 	public void StopInteract()
 	{
+		isHolding = false;
 		Debug.Log($"Stopped interacting with {gameObject.name} after {currentHoldTime}s / {holdTime}s");
 		PlayerUI.instance.interactableHoldProgressImage.gameObject.SetActive(false);
 		if (currentHoldTime > holdTime) SuccessfullyHold();
