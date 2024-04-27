@@ -199,9 +199,11 @@ GameObject:
   - component: {fileID: 3604967619160999835}
   - component: {fileID: 6548053705594987257}
   - component: {fileID: 4352467628131688225}
+  - component: {fileID: 8719555445737529985}
   - component: {fileID: 8569000918069769473}
   - component: {fileID: 7900944690088814421}
   - component: {fileID: 6294759749969572306}
+  - component: {fileID: 6401352900722354744}
   m_Layer: 7
   m_Name: StateMachine
   m_TagString: Untagged
@@ -269,6 +271,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyReferences: {fileID: 0}
   RotateSpeed: 0.1
+--- !u!114 &8719555445737529985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017702967200205097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f58a91193b2fe5478ba721076265974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyReferences: {fileID: 0}
 --- !u!114 &8569000918069769473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,3 +324,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyReferences: {fileID: 0}
   ChaseDistance: 15
+--- !u!114 &6401352900722354744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017702967200205097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb2d7427a197604c95c066e456b1bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyReferences: {fileID: 0}

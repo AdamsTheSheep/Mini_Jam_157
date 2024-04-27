@@ -5,10 +5,11 @@ using UnityEngine;
 public class GlobalState : State
 {
 	StateMachine stateMachine;
-
+	public static GameManager.Event TriggerSuspicion; 
 	void Start()
 	{
 		stateMachine = gameObject.GetComponent<StateMachine>();
+		TriggerSuspicion += trigger;
 	}
 	public override void StateUpdate()
 	{
@@ -19,4 +20,10 @@ public class GlobalState : State
 			Transition(stateMachine.CurrentState, "Chase");
 		}
 	}
+
+	void trigger()
+	{
+		Transition(stateMachine.CurrentState, "Suspicious");
+	}
+
 }

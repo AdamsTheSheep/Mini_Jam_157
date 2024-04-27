@@ -21,7 +21,6 @@ public class Chase : State
 		enemyReferences.navMeshAgent.destination = player.transform.position;
 		if (enemyReferences.navMeshAgent.remainingDistance > ChaseDistance)
 		{
-			enemyReferences.navMeshAgent.isStopped = true;
 			Transition(this, "FindState");
 		}
 	}
@@ -29,6 +28,7 @@ public class Chase : State
 	public override void Exit()
 	{
 		base.Exit();
+		enemyReferences.navMeshAgent.isStopped = true;
 		Destroy(timer);
 	}
 }
