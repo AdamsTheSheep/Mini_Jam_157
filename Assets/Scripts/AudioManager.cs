@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour
 	[SerializeField] List<AudioClip> randomAmbiantSounds;
 	[SerializeField] float minTimeBetweenRandomSounds = 5f;
 	[SerializeField] float maxTimeBetweenRandomSounds = 20f;
+	[SerializeField] float minRandomPitch = .9f;
+	[SerializeField] float maxRandomPitch = 1.1f;
 
 	public static AudioManager instance;
 
@@ -28,8 +30,9 @@ public class AudioManager : MonoBehaviour
 		StartCoroutine(PlayAmbianceAtRandomTime());
 	}
 
-	public void PlayNonSpatializedSFX(AudioClip clip)
+	public void PlayNonSpatializedSFX(AudioClip clip, bool randomPitch = false)
 	{
+		nonSpatializedSFXAudioSource.pitch = randomPitch ? Random.Range(minRandomPitch, maxRandomPitch) : 1f;
 		nonSpatializedSFXAudioSource.PlayOneShot(clip);
 	}
 
