@@ -16,6 +16,7 @@ public class InteractableGrab : MonoBehaviour, IInteractable
 
 	public void Start()
 	{
+		gameObject.layer = LayerMask.NameToLayer("Grabbable");
 		body = gameObject.GetComponent<Rigidbody>();
 		if (body == null)
 		{
@@ -37,6 +38,7 @@ public class InteractableGrab : MonoBehaviour, IInteractable
 			body.drag = 10f;
 			body.useGravity = false;
 			body.constraints = RigidbodyConstraints.FreezeRotation;
+			Physics.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player"),true);
 		}
 	}
 
@@ -49,6 +51,7 @@ public class InteractableGrab : MonoBehaviour, IInteractable
 			body.drag = drag;
 			body.useGravity = useGravity;
 			body.constraints = constraints;
+			Physics.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player"),false);
 		}
 	}
    private void Update()

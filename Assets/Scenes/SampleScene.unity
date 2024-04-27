@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1161,7 +1161,7 @@ GameObject:
   - component: {fileID: 792891922}
   - component: {fileID: 792891921}
   - component: {fileID: 792891920}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2356,9 +2356,9 @@ GameObject:
   - component: {fileID: 1829398754}
   - component: {fileID: 1829398753}
   - component: {fileID: 1829398752}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: PlayerCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2465,7 +2465,7 @@ GameObject:
   - component: {fileID: 1958150778}
   - component: {fileID: 1958150777}
   - component: {fileID: 1958150776}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InteractableGrab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2526,8 +2526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5dee21c16d25440b432742497c35aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickUpForce: 100
-  Distance: 50
+  PickUpForce: 20
+  Distance: 2
 --- !u!65 &1958150778
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2897,7 +2897,7 @@ GameObject:
   - component: {fileID: 2088006336}
   - component: {fileID: 2088006335}
   - component: {fileID: 2088006334}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
