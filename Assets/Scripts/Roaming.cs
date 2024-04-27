@@ -9,19 +9,18 @@ public class Roaming : State
 	Timer timer;
 	public override void Enter()
 	{
-		Debug.Log("HI");
 		base.Enter();
 		if (GameObject.FindGameObjectWithTag("NavSurface") == null) {Debug.Log("There's no game object with tag \"NavSurface\""); return;}
 		var surface = GameObject.FindGameObjectWithTag("NavSurface").GetComponent<NavMeshSurface>();
         Vector3 target = SetRandomDest(surface.navMeshData.sourceBounds);
 		enemyReferences.navMeshAgent.SetDestination(target);
 		timer = Timer.CreateTimer(gameObject, RoamingTime,false,true);
-		timer.Ended += OnTimerEnded;
+		timer.OnTimerEnded += OnTimerEnded;
 	}
 
 	private void OnTimerEnded()
 	{
-		Transition(this,"Roaming");
+		Transition(this,"FindState");
 	}
 
 	public override void StateUpdate()
@@ -29,8 +28,14 @@ public class Roaming : State
 		Debug.Log(enemyReferences.navMeshAgent.destination);
 		if (enemyReferences.navMeshAgent.hasPath == false)
 		{
-			Transition(this,"Roaming");
+			Transition(this,"FindState");
 		}
+	}
+
+	public override void Exit()
+	{
+		base.Exit();
+		enemyReferences.navMeshAgent.isStopped = true;
 	}
 
 	Vector3 SetRandomDest(Bounds bounds)

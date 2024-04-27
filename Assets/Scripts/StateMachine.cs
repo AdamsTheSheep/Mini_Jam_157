@@ -5,6 +5,7 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour
 {
 	[SerializeField] List<State> States;
+	[SerializeField] State GlobalState;
 	[SerializeField] State InitialState;
 	[SerializeField] EnemyReferences enemyReferences;
     [HideInInspector] public State CurrentState;
@@ -25,11 +26,13 @@ public class StateMachine : MonoBehaviour
 
 	protected void Update()
 	{
+		if (GlobalState) {GlobalState.StateUpdate();}
 		if (CurrentState) {CurrentState.StateUpdate();}
     }
 
 	void FixedUpdate()
 	{
+		if (GlobalState) {GlobalState.StateFixedUpdate();}
         if (CurrentState) {CurrentState.StateFixedUpdate();}
 	}
 

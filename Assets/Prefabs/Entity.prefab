@@ -198,6 +198,10 @@ GameObject:
   - component: {fileID: 6028795485253637024}
   - component: {fileID: 3604967619160999835}
   - component: {fileID: 6548053705594987257}
+  - component: {fileID: 4352467628131688225}
+  - component: {fileID: 8569000918069769473}
+  - component: {fileID: 7900944690088814421}
+  - component: {fileID: 6294759749969572306}
   m_Layer: 7
   m_Name: StateMachine
   m_TagString: Untagged
@@ -233,7 +237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   States: []
-  InitialState: {fileID: 0}
+  GlobalState: {fileID: 7900944690088814421}
+  InitialState: {fileID: 8569000918069769473}
   enemyReferences: {fileID: 7570213706672213453}
   CurrentState: {fileID: 0}
 --- !u!114 &6548053705594987257
@@ -250,3 +255,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyReferences: {fileID: 0}
   RoamingTime: 3
+--- !u!114 &4352467628131688225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017702967200205097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f4ac0c5ba2bcc4f82439d1ac2d32df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyReferences: {fileID: 0}
+  RotateSpeed: 0.1
+--- !u!114 &8569000918069769473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017702967200205097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b310a4afef9bf4a930de4229747dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyReferences: {fileID: 0}
+--- !u!114 &7900944690088814421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017702967200205097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec3538c0cc492947899d68a59ad47cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyReferences: {fileID: 0}
+--- !u!114 &6294759749969572306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017702967200205097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f879ca3aa03335d40b19b244ad8d763f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyReferences: {fileID: 0}
+  ChaseDistance: 15
