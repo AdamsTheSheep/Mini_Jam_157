@@ -8,6 +8,7 @@ public static class GameManager
 
 	public delegate void StateEvent(State currentstate, string NextState);
 
+	public static bool playerHasFixedGenerator;
 	private static bool playerHasWireTape;
 
 	public static bool PlayerHasWireTape

@@ -29,6 +29,8 @@ public class InteractableDetector : MonoBehaviour
 
 	private void Update()
 	{
+		if (PlayerUI.instance.usingGenerator) return;
+
 		Ray r = new Ray(transform.position, transform.forward);
 		if (Physics.Raycast(r, out RaycastHit hitInfo, range))
 		{

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
@@ -17,7 +18,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] Color errorColor;
     [SerializeField] TextMeshProUGUI inventoryText;
 
-    bool usingGenerator;
+    public bool usingGenerator;
     bool inFillAnimation;
     [SerializeField] GameObject generatorUI;
     [SerializeField] RectTransform generatorUIRT;
@@ -28,9 +29,11 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] AnimationCurve generatorTriggerPositionCurve;
     [SerializeField] float generatorTriggerPositionCurveSpeed;
     float targetFill;
-    float generatorUIHeight;
     float animationCurveProgress;
     float animationCurveValue;
+
+    [SerializeField] GameObject gameOverScreen;
+    [SerializeField] GameObject winScreen;
 
 	Timer timer;
 
@@ -38,9 +41,6 @@ public class PlayerUI : MonoBehaviour
     {
         if (instance) Destroy(instance.gameObject);
         instance = this;
-
-        generatorUIHeight = generatorUIRT.rect.height;
-        //StartGeneratorMinigame();
 	}
 
     private void Update()
@@ -58,7 +58,7 @@ public class PlayerUI : MonoBehaviour
                 if (animationCurveValue >= generatorFill.fillAmount)
                 {
                     generatorFill.fillAmount = Mathf.Min(targetFill, animationCurveValue);
-                    if (generatorFill.fillAmount >= 1)
+                    if (generatorFill.fillAmount >= .99f)
                     {
                         usingGenerator = false;
                     }
@@ -73,12 +73,18 @@ public class PlayerUI : MonoBehaviour
                 //Check if trigger is in correct zone
                 if (animationCurveValue <= successGeneratorTriggerPosition)
                 {
+                    if (animationCurveProgress > 1 / generatorTriggerPositionCurveSpeed / 2) animationCurveProgress = 0f;
                     targetFill += generatorFillProgressPerSuccess;
                     inFillAnimation = true;
                 }
                 else generatorFill.fillAmount = 0f;
             }
 
+            else if (Input.GetKeyDown(KeyCode.E))
+            {
+                usingGenerator = false;
+                generatorUI.SetActive(false);
+            }
         }
     }
 
@@ -116,5 +122,20 @@ public class PlayerUI : MonoBehaviour
         usingGenerator = true;
         generatorFill.fillAmount = 0f;
         animationCurveProgress = 0f;
+	}
+
+    public void ShowGameOverScreen()
+    {
+        gameOverScreen.SetActive(true);
+    }
+
+    public void ShowWinScreen()
+    {
+        winScreen.SetActive(true);
+    }
+
+	public static void ReloadScene()
+	{
+		SceneManager.LoadScene(2);
 	}
 }
