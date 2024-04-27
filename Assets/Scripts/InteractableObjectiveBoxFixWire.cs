@@ -55,6 +55,11 @@ public class InteractableObjectiveBoxFixWire : MonoBehaviour, IInteractable
 	{
 		Debug.Log($"Stopped interacting with {gameObject.name}");
 
+		if (timer)
+		{
+			timer.isPaused = true;
+			Destroy(timer); 
+		}
 		PlayerUI.instance.interactableHoldProgressImage.gameObject.SetActive(false);
 		if (GameManager.PlayerHasWireTape || isFixed) PlayerUI.instance.holdInteractionText.gameObject.SetActive(false);
 	}
@@ -65,6 +70,7 @@ public class InteractableObjectiveBoxFixWire : MonoBehaviour, IInteractable
 		PlayerUI.instance.holdInteractionText.text = holdInteractionFinishedText;
 		isFixed = true;
 		//TODO : set objective as completed, repair ligths etc
+		PlayerUI.instance.FixWires();
 	}
 
 	void Break()

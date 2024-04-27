@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 7721673512739376848}
-  openPosition: {x: 0, y: 1.4278, z: 1}
-  closedPosition: {x: 0, y: 1.4278, z: 0}
+  openPosition: {x: 0, y: 1, z: 1}
+  closedPosition: {x: 0, y: 1, z: 0}
   animationDuration: 0.3
   isOpen: 0
   isAnimating: 0
