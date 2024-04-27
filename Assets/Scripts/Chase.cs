@@ -29,6 +29,7 @@ public class Chase : State
 	{
 		base.Exit();
 		enemyReferences.navMeshAgent.isStopped = true;
+		enemyReferences.navMeshAgent.ResetPath();
 		Destroy(timer);
 	}
 }

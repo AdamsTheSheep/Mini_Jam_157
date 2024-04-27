@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GlobalState : State
 {
+	public float VisionRangeAngle = 55;
+	public float VisionDistance = 5;
 	StateMachine stateMachine;
-	public static GameManager.Event TriggerSuspicion; 
+	public static GameManager.Event TriggerSuspicion;
 	void Start()
 	{
 		stateMachine = gameObject.GetComponent<StateMachine>();
@@ -13,9 +15,9 @@ public class GlobalState : State
 	}
 	public override void StateUpdate()
 	{
-		var temp = 0;
+		var spottedPlayer = Vision();
 		base.StateUpdate();
-		if (temp != 0 && stateMachine.CurrentState.GetType() != typeof(Chase))		//Condition for chase state
+		if (spottedPlayer && stateMachine.CurrentState.GetType() != typeof(Chase))		//Condition for chase state
 		{
 			Transition(stateMachine.CurrentState, "Chase");
 		}
@@ -26,4 +28,20 @@ public class GlobalState : State
 		Transition(stateMachine.CurrentState, "Suspicious");
 	}
 
+	bool Vision()
+	{
+		Collider[] cols = Physics.OverlapSphere(transform.position, VisionDistance);
+		Vector3 characterToCollider;
+		float dot;
+		foreach (Collider collider in cols)
+		{
+			characterToCollider = (collider.transform.position-transform.position).normalized;
+			dot = Vector3.Dot(characterToCollider, transform.forward);
+			if (dot >= Mathf.Cos(VisionRangeAngle) && collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

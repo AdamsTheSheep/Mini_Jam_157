@@ -56,8 +56,8 @@ public class Timer : MonoBehaviour
 		else
 		{
 			isPaused = true;
-			if (OnTimerEnded != null) { OnTimerEnded(); }
-			if (destroyOnEnd == true) { Destroy(this); }
+			if (OnTimerEnded != null) { OnTimerEnded();}
+			if (destroyOnEnd == true) { Component.Destroy(this); }
 			if (LoopTimer == true) { Begin(); }
 		}
 	}
@@ -75,6 +75,7 @@ public class Timer : MonoBehaviour
 		timer.duration = Duration;
 		timer.destroyOnEnd = DestroyOnEnd;
 		timer.StartOnBegin = autoStart;
+		timer.LoopTimer = looptimer;
 		return timer;
 	}
 }

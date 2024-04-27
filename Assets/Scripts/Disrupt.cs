@@ -9,21 +9,13 @@ public class Disrupt : State
 	public override void Enter()
 	{
 		base.Enter();
-		var doors = GameObject.FindGameObjectsWithTag("Door");
-		if (doors.Length == 0)
+		GameObject[] items = new List<GameObject>().ToArray();		//Declare list of objects here
+		if (items.Length == 0)
 		{
 			Transition(this, "FindState");
+			return;
 		}
-		var temp = doors;
-		foreach (var door in doors)
-		{
-			if (door.activeSelf == true)
-			{
-				temp = temp.Where(val => val != door).ToArray();
-			}
-		}
-		doors = temp;
-		doors[Random.Range(0, doors.Length)].SetActive(true);
+																	//Do stuffs with list here
 		Transition(this, "FindState");
 	}
 }

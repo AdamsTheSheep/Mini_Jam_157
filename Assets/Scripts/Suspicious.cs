@@ -27,6 +27,7 @@ public class Suspicious : State
 		if (Vector3.Distance(enemyReferences.ParentTransform.position, pos) < 3)
 		{
 			enemyReferences.navMeshAgent.isStopped = true;
+			enemyReferences.navMeshAgent.ResetPath();
 			timer.isPaused = true;
 			Destroy(timer);
 			Transition(this, "FindState");
@@ -36,6 +37,7 @@ public class Suspicious : State
 	void OnTimerEnded()
 	{
 		enemyReferences.navMeshAgent.isStopped = true;
+		enemyReferences.navMeshAgent.ResetPath();
 		Transition(this, "Chase");
 	}
 

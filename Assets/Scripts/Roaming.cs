@@ -36,6 +36,7 @@ public class Roaming : State
 	{
 		base.Exit();
 		enemyReferences.navMeshAgent.isStopped = true;
+		enemyReferences.navMeshAgent.ResetPath();
 	}
 
 	Vector3 SetRandomDest(Bounds bounds)
