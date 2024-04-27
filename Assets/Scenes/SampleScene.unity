@@ -1037,6 +1037,7 @@ MonoBehaviour:
   defaultColor: {r: 0, g: 0, b: 0, a: 0}
   errorColor: {r: 0, g: 0, b: 0, a: 0}
   inventoryText: {fileID: 0}
+  usingGenerator: 0
   generatorUI: {fileID: 0}
   generatorUIRT: {fileID: 0}
   generatorFill: {fileID: 0}
@@ -1050,6 +1051,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   generatorTriggerPositionCurveSpeed: 0
+  gameOverScreen: {fileID: 0}
+  winScreen: {fileID: 0}
 --- !u!1 &763700856
 GameObject:
   m_ObjectHideFlags: 0
@@ -1935,7 +1938,7 @@ PrefabInstance:
     - target: {fileID: 1606235075446989380, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2663897137332288818, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
@@ -1945,17 +1948,17 @@ PrefabInstance:
     - target: {fileID: 2663897137332288818, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3010823850198106605, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3017702967200205097, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3041783387867528190, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
@@ -2842,37 +2845,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981042481}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1985517995
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1985517996}
-  m_Layer: 0
-  m_Name: Navi
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1985517996
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985517995}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11, y: 0.66, z: 7.2499266}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2075683199
 GameObject:
   m_ObjectHideFlags: 0
@@ -3343,7 +3315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2103808693}
   - component: {fileID: 2103808694}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3532,5 +3504,4 @@ SceneRoots:
   - {fileID: 792891922}
   - {fileID: 652382863}
   - {fileID: 62195481}
-  - {fileID: 1985517996}
   - {fileID: 1562871908}

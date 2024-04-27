@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1267623565406416914}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 6322532592513189217}
   - component: {fileID: 7570213706672213453}
   - component: {fileID: 3041783387867528190}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Entity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 6581249556133842135}
   - component: {fileID: 8557135730897306930}
   - component: {fileID: 4120908710451973272}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 7900944690088814421}
   - component: {fileID: 6294759749969572306}
   - component: {fileID: 6401352900722354744}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: StateMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,6 +310,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyReferences: {fileID: 0}
+  VisionRangeAngle: 55
+  VisionDistance: 5
 --- !u!114 &6294759749969572306
 MonoBehaviour:
   m_ObjectHideFlags: 0
