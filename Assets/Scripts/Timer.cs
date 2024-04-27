@@ -60,10 +60,10 @@ public class Timer : MonoBehaviour
 		if(value == false && timeRemaining > 0) {Invoke ( "_tick", 1f);}
 	}
 
-	public static Timer CreateTimer(GameObject Object, float Duration, bool looptimer, bool DestroyOnEnd)
+	public static Timer CreateTimer(GameObject ObjectToAttach, float Duration, bool looptimer, bool DestroyOnEnd)
 	{
-		if(!Object) {Debug.LogError("Cannot find the required component to attach timer to."); return null;}
-		var timer = Object.AddComponent<Timer>();
+		if(!ObjectToAttach) {Debug.LogError("Cannot find the required component to attach timer to."); return null;}
+		var timer = ObjectToAttach.AddComponent<Timer>();
 		timer.duration = Duration;
 		timer.destroyOnEnd = DestroyOnEnd;
 		return timer;
