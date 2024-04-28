@@ -1587,6 +1587,9 @@ MonoBehaviour:
   timeLeft: 300
   gameOverScreen: {fileID: 1482276210}
   winScreen: {fileID: 118264882}
+  playerDeathSounds:
+  - {fileID: 8300000, guid: cf9978709b92ddb41a0f058f08fd1212, type: 3}
+  - {fileID: 8300000, guid: 2eee1c54ec2ea8341b6c13b38de1c990, type: 3}
 --- !u!4 &742822417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4971993463435114644, guid: 08d35a943c2c3e742935e489e79d48e4,

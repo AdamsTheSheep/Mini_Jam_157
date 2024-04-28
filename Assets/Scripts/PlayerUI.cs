@@ -24,6 +24,7 @@ public class PlayerUI : MonoBehaviour
 
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject winScreen;
+    [SerializeField] AudioClip[] playerDeathSounds;
 
     Timer timer;
 
@@ -141,5 +142,14 @@ public class PlayerUI : MonoBehaviour
         {
             GameManager.playerHasFixedAll = true;
         }
+    }
+
+    [ContextMenu("KillPlayer")]
+    public void KillPlayer()
+    {
+        //Change here if player should not be one hit death
+
+        AudioManager.instance.PlayNonSpatializedSFX(playerDeathSounds[Random.Range(0, playerDeathSounds.Length)]);
+        GameOver();
     }
 }
