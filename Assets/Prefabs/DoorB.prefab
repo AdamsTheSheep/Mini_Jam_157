@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8299984844973173084}
   - component: {fileID: 7342400375799617470}
   - component: {fileID: 9141576981959240666}
+  - component: {fileID: 1578477173540239473}
+  - component: {fileID: 3618418811721632873}
   m_Layer: 0
   m_Name: DoorB
   m_TagString: Untagged
@@ -105,3 +107,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.0020000017, z: 0.04}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &1578477173540239473
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095749425412920898}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.001, z: 0.020000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &3618418811721632873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095749425412920898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d7fb2211495114781d62e649984646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 7095749425412920898}
+  openPosition: {x: 0, y: 0, z: 0}
+  closedPosition: {x: 0, y: 0, z: 0}
+  animationDuration: 0
+  startOpen: 1
+  isOpen: 0
