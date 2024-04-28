@@ -96,6 +96,8 @@ GameObject:
   - component: {fileID: 5168860484261458290}
   - component: {fileID: 8162052087361155230}
   - component: {fileID: 2837901227662128146}
+  - component: {fileID: 186107731866823419}
+  - component: {fileID: 4406491809557244478}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -219,3 +221,37 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.3}
   m_TimeToStationary: 0.5
+--- !u!114 &186107731866823419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4513823913475275382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90fcaa63e89b3045befad7062fff811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OffTime: 20
+--- !u!95 &4406491809557244478
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4513823913475275382}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 45e2df33a1b264140a689bd198daa2ba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
