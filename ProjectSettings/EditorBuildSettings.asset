@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/1_Tutorial.unity
     guid: 49bc9111b547f4a4ebb0907e045ec474
   - enabled: 1
+    path: Assets/Scenes/SampleScenePhoque.unity
+    guid: 511a0545b1d4c6f43ae3341b812eace2
+  - enabled: 1
     path: Assets/Scenes/2_MainGame.unity
     guid: ada8c0cb03ec6c44f925267f79fb7703
+  - enabled: 1
+    path: Assets/Scenes/GabrielScene.unity
+    guid: 2489fd7d4c7df19418a0bcb63f75c797
   m_configObjects: {}

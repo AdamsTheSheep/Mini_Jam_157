@@ -8,7 +8,26 @@ public class Doors : MonoBehaviour
 	[SerializeField] Vector3 openPosition;
 	[SerializeField] Vector3 closedPosition;
 	[SerializeField] float animationDuration;
+	[SerializeField] bool startOpen;
 	[SerializeField] bool isOpen;
+
+	private void Start()
+	{
+		if(startOpen) door.transform.localPosition = openPosition;
+		isOpen = true;
+	}
+
+	[ContextMenu("OpenDoor")]
+	public void Open()
+	{
+		StartCoroutine(OpenDoor());
+	}
+
+	[ContextMenu("CloseDoor")]
+	public void Close()
+	{
+		StartCoroutine (CloseDoor());
+	}
 
 	public IEnumerator OpenDoor()
 	{
