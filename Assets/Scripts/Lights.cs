@@ -5,9 +5,10 @@ using UnityEngine;
 public class Lights : MonoBehaviour
 {
 	public float OffTime = 20;
+
 	public void Turnoff()
 	{
-		if (gameObject.activeSelf == false)
+		if (gameObject.activeSelf == true)
 		{
 			var timer = Timer.CreateTimer(transform.parent.gameObject, OffTime, false,true);
 			timer.OnTimerEnded += OnTimerEnded;
@@ -18,5 +19,6 @@ public class Lights : MonoBehaviour
 	void OnTimerEnded()
 	{
 		gameObject.SetActive(true);
+		gameObject.GetComponent<Animation>().Play();
 	}
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,17 @@ public class Disrupt : State
 	public override void Enter()
 	{
 		base.Enter();
-		GameObject[] items = new List<GameObject>().ToArray();		//Declare list of objects here
+		GameObject[] items = GameObject.FindGameObjectsWithTag("Light");		//Declare list of objects here
 		if (items.Length == 0)
 		{
 			Transition(this, "FindState");
 			return;
 		}
-																	//Do stuffs with list here
+		var i = UnityEngine.Random.Range(0, items.Length);
+		if (items[i].activeSelf == true)
+		{
+			items[i].GetComponent<Lights>().Turnoff();
+		}
 		Transition(this, "FindState");
 	}
 }
