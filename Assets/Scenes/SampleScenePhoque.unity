@@ -1584,9 +1584,9 @@ MonoBehaviour:
   errorColor: {r: 0.735849, g: 0.12842648, b: 0.12842648, a: 1}
   inventoryText: {fileID: 924032206}
   timerText: {fileID: 325840425}
-  timeLeft: 65
-  gameOverScreen: {fileID: 0}
-  winScreen: {fileID: 0}
+  timeLeft: 300
+  gameOverScreen: {fileID: 1482276210}
+  winScreen: {fileID: 118264882}
 --- !u!4 &742822417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4971993463435114644, guid: 08d35a943c2c3e742935e489e79d48e4,

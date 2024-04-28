@@ -12,34 +12,37 @@ public class PlayerUI : MonoBehaviour
     public Image interactableHoldProgressImage;
     public Image pointerImage;
     public TextMeshProUGUI holdInteractionText;
-	[SerializeField] float missingWireTapeMessageDuration;
-	[SerializeField] string missingWireTapeMessage;
+    [SerializeField] float missingWireTapeMessageDuration;
+    [SerializeField] string missingWireTapeMessage;
     [SerializeField] Color defaultColor;
     [SerializeField] Color errorColor;
     [SerializeField] TextMeshProUGUI inventoryText;
     [SerializeField] TextMeshProUGUI timerText;
-    
+
     [SerializeField] float timeLeft;
     bool lastMinuteSounsPlaying = false;
 
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject winScreen;
 
-	Timer timer;
+    Timer timer;
 
     private void Awake()
     {
         if (instance) Destroy(instance.gameObject);
         instance = this;
+
+        Time.timeScale = 1f;
+        Cursor.visible = false;
 	}
 
-    private void Update()
+	private void Update()
     {
         if (timeLeft > 0)
         {
             timeLeft -= Time.deltaTime;
             DisplayTime(timeLeft);
-            if(timeLeft<60 && !lastMinuteSounsPlaying)
+            if (timeLeft < 60 && !lastMinuteSounsPlaying)
             {
                 lastMinuteSounsPlaying = true;
                 foreach (var item in FindObjectsByType<EmergencyLight>(FindObjectsInactive.Include, FindObjectsSortMode.None))
@@ -50,9 +53,23 @@ public class PlayerUI : MonoBehaviour
         }
         else
         {
-            // print("Time Is Up");
+            GameOver();
         }
     }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        Cursor.visible = true;
+        gameOverScreen.SetActive(true);
+    }
+
+    public void ShowWinScreen()
+	{
+		Time.timeScale = 0f;
+		Cursor.visible = true;
+		winScreen.SetActive(true);
+	}
 
     void DisplayTime(float time)
     {
@@ -70,7 +87,7 @@ public class PlayerUI : MonoBehaviour
         }
 
         timer = Timer.CreateTimer(gameObject, missingWireTapeMessageDuration, false, true);
-		holdInteractionText.gameObject.SetActive(true);
+        holdInteractionText.gameObject.SetActive(true);
         holdInteractionText.color = errorColor;
         holdInteractionText.text = missingWireTapeMessage;
         timer.OnTimerEnded += () =>
@@ -87,7 +104,7 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateWireTapeUI()
     {
-		inventoryText.gameObject.SetActive(GameManager.PlayerHasWireTape);
+        inventoryText.gameObject.SetActive(GameManager.PlayerHasWireTape);
     }
 
     public void ShowGameOverScreen()
@@ -95,29 +112,24 @@ public class PlayerUI : MonoBehaviour
         gameOverScreen.SetActive(true);
     }
 
-    public void ShowWinScreen()
+    public static void ReloadScene()
     {
-        winScreen.SetActive(true);
+        SceneManager.LoadScene(2);
     }
-
-	public static void ReloadScene()
-	{
-		SceneManager.LoadScene(2);
-	}
 
     public void FixSwitch()
     {
         GameManager.playerHasFixedSwitch = true;
         CheckAllFixed();
-	}
+    }
 
-	public void FixWires()
+    public void FixWires()
     {
         GameManager.playerHasFixedWires = true;
         CheckAllFixed();
-	}
+    }
 
-	public void FixGenerator()
+    public void FixGenerator()
     {
         GameManager.playerHasFixedGenerator = true;
         CheckAllFixed();
@@ -125,9 +137,9 @@ public class PlayerUI : MonoBehaviour
 
     void CheckAllFixed()
     {
-        if(GameManager.playerHasFixedSwitch && GameManager.playerHasFixedWires && GameManager.playerHasFixedGenerator)
+        if (GameManager.playerHasFixedSwitch && GameManager.playerHasFixedWires && GameManager.playerHasFixedGenerator)
         {
-			GameManager.playerHasFixedAll = true;
-		}
+            GameManager.playerHasFixedAll = true;
+        }
     }
 }
