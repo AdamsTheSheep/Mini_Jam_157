@@ -50,7 +50,7 @@ public class PlayerUI : MonoBehaviour
         }
         else
         {
-            print("Time Is Up");
+            // print("Time Is Up");
         }
     }
 
