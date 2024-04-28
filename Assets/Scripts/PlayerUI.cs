@@ -18,20 +18,6 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] Color errorColor;
     [SerializeField] TextMeshProUGUI inventoryText;
 
-    public bool usingGenerator;
-    bool inFillAnimation;
-    [SerializeField] GameObject generatorUI;
-    [SerializeField] RectTransform generatorUIRT;
-    [SerializeField] Image generatorFill;
-    [SerializeField] RectTransform generatorTriggerPosition;
-    [SerializeField] float successGeneratorTriggerPosition;
-    [SerializeField] float generatorFillProgressPerSuccess;
-    [SerializeField] AnimationCurve generatorTriggerPositionCurve;
-    [SerializeField] float generatorTriggerPositionCurveSpeed;
-    float targetFill;
-    float animationCurveProgress;
-    float animationCurveValue;
-
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject winScreen;
 
@@ -41,56 +27,6 @@ public class PlayerUI : MonoBehaviour
     {
         if (instance) Destroy(instance.gameObject);
         instance = this;
-	}
-
-    private void Update()
-    {
-        if (usingGenerator)
-		{
-			//trigger position animation
-			animationCurveProgress += Time.deltaTime;
-            if (animationCurveProgress > 1/generatorTriggerPositionCurveSpeed) animationCurveProgress -= 1f / generatorTriggerPositionCurveSpeed;
-			animationCurveValue = generatorTriggerPositionCurve.Evaluate(animationCurveProgress * generatorTriggerPositionCurveSpeed);
-			generatorTriggerPosition.anchoredPosition = new Vector2(0f, animationCurveValue * generatorUIRT.rect.height);
-
-            if (inFillAnimation)
-            {
-                if (animationCurveValue >= generatorFill.fillAmount)
-                {
-                    generatorFill.fillAmount = Mathf.Min(targetFill, animationCurveValue);
-                    if (generatorFill.fillAmount >= .99f)
-                    {
-                        usingGenerator = false;
-                        FixGenerator();
-                    }
-                    if (animationCurveValue > targetFill) inFillAnimation = false;
-                }
-                return;
-            }
-
-            //Press E to try booting generator when not in fill animation
-            else if (Input.GetKeyDown(KeyCode.E))
-            {
-                //Check if trigger is in correct zone
-                if (animationCurveValue <= successGeneratorTriggerPosition)
-                {
-                    if (animationCurveProgress > 1 / generatorTriggerPositionCurveSpeed / 2) animationCurveProgress = 0f;
-                    targetFill += generatorFillProgressPerSuccess;
-                    inFillAnimation = true;
-                }
-                else
-                {
-                    generatorFill.fillAmount = 0f;
-                    targetFill = 0f;
-                }
-            }
-		}
-
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			usingGenerator = false;
-			generatorUI.SetActive(false);
-		}
 	}
 
     public void ShowWireTapeMissingMessage()
@@ -120,14 +56,6 @@ public class PlayerUI : MonoBehaviour
     {
 		inventoryText.gameObject.SetActive(GameManager.PlayerHasWireTape);
     }
-
-    public void StartGeneratorMinigame()
-    {
-        generatorUI.SetActive(true);
-        usingGenerator = true;
-        generatorFill.fillAmount = 0f;
-        animationCurveProgress = 0f;
-	}
 
     public void ShowGameOverScreen()
     {

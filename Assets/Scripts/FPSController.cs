@@ -30,7 +30,7 @@ public class FPSController : MonoBehaviour
 
 	private void Update()
 	{
-		if (PlayerUI.instance.usingGenerator) return;
+		if (GameManager.usingGenerator) return;
 
 		//MOVEMENT
 		Vector3 forward = transform.TransformDirection(Vector3.forward);
