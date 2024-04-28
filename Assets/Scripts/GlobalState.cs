@@ -62,12 +62,12 @@ public class GlobalState : State
 				case 1:
 					Transition(stateMachine.CurrentState, "Rotate");
 					break;
-				case 2: case 3:
+				case var x when (x > 3 && Vector3.Distance(enemyReferences.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 15):
+					Transition(stateMachine.CurrentState, "Chase");
+					break;
+				default:
 					Suspicious.SoundPosition = pos;
 					Transition(stateMachine.CurrentState, "Suspicious");
-					break;
-				case var x when x > 3:
-					Transition(stateMachine.CurrentState, "Chase");
 					break;
 			}
 		}

@@ -9,7 +9,6 @@ public class Doors : MonoBehaviour
 	[SerializeField] Vector3 closedPosition;
 	[SerializeField] float animationDuration;
 	[SerializeField] bool isOpen;
-	[SerializeField] bool isAnimating;
 
 	public IEnumerator OpenDoor()
 	{
@@ -23,7 +22,6 @@ public class Doors : MonoBehaviour
 		}
 
 		door.transform.localPosition = openPosition;
-		isAnimating = false;
 		isOpen = true;
 	}
 
@@ -39,7 +37,6 @@ public class Doors : MonoBehaviour
 		}
 
 		door.transform.localPosition = closedPosition;
-		isAnimating = false;
 		isOpen = false;
 	}
 }
