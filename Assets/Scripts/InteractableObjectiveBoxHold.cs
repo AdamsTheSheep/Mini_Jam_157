@@ -40,7 +40,7 @@ public class InteractableObjectiveBoxHold : MonoBehaviour, IInteractable
 		Debug.Log($"Stopped interacting with {gameObject.name}");
 
 		timer.isPaused = true;
-		Destroy(timer);
+		Component.Destroy(timer);
 		PlayerUI.instance.interactableHoldProgressImage.gameObject.SetActive(false);
 		PlayerUI.instance.holdInteractionText.gameObject.SetActive(false);
 	}

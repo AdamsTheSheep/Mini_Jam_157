@@ -10,7 +10,7 @@ public class Rotate : State
     public override void Enter()
 	{
 		base.Enter();
-		RotateTowards = Quaternion.AngleAxis(UnityEngine.Random.Range(0, 360), Vector3.right) * enemyReferences.ParentTransform.forward;
+		RotateTowards = Quaternion.AngleAxis(UnityEngine.Random.Range(90, 180), Vector3.right) * enemyReferences.ParentTransform.forward;
 	}
 
 	public override void StateFixedUpdate()

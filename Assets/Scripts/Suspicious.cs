@@ -5,18 +5,12 @@ using UnityEngine;
 
 public class Suspicious : State
 {
-	Vector3 pos;
 	Timer timer;
+	public static Vector3 SoundPosition;
 	public override void Enter()
 	{
 		base.Enter();
-		var player = GameObject.FindGameObjectWithTag("Player");
-		if (player == null)
-		{
-			Transition(this, "FindState");
-		}
-		pos = player.transform.position;
-		enemyReferences.navMeshAgent.destination = pos;
+		enemyReferences.navMeshAgent.destination = SoundPosition;
 		if (timer == null)
 		{
 			timer = Timer.CreateTimer(gameObject,15,false,true);
@@ -27,12 +21,13 @@ public class Suspicious : State
 	public override void StateUpdate()
 	{
 		base.StateUpdate();
-		if (Vector3.Distance(enemyReferences.ParentTransform.position, pos) < 3)
+		Debug.Log(Vector3.Distance(enemyReferences.ParentTransform.position,enemyReferences.navMeshAgent.destination));
+		if (Vector3.Distance(enemyReferences.ParentTransform.position,enemyReferences.navMeshAgent.destination) < 1)
 		{
 			enemyReferences.navMeshAgent.isStopped = true;
 			enemyReferences.navMeshAgent.ResetPath();
 			timer.isPaused = true;
-			Destroy(timer);
+			Component.Destroy(timer);
 			Transition(this, "FindState");
 			
 		}

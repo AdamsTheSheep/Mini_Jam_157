@@ -25,7 +25,6 @@ public class Roaming : State
 
 	public override void StateUpdate()
 	{
-		Debug.Log(enemyReferences.navMeshAgent.destination);
 		if (enemyReferences.navMeshAgent.hasPath == false)
 		{
 			Transition(this,"FindState");
