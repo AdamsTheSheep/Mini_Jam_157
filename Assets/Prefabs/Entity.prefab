@@ -299,6 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyReferences: {fileID: 0}
   RoamingTime: 3
+  Speed: 2
 --- !u!114 &4352467628131688225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,6 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyReferences: {fileID: 0}
   ChaseDistance: 15
+  ChaseSpeed: 4
 --- !u!114 &6401352900722354744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,3 +384,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyReferences: {fileID: 0}
+  Speed: 3

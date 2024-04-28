@@ -7,9 +7,11 @@ public class Suspicious : State
 {
 	Timer timer;
 	public static Vector3 SoundPosition;
+	public float Speed;
 	public override void Enter()
 	{
 		base.Enter();
+		enemyReferences.navMeshAgent.speed = Speed;
 		enemyReferences.navMeshAgent.destination = SoundPosition;
 		if (timer == null)
 		{

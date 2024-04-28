@@ -7,9 +7,11 @@ public class Chase : State
 	GameObject player;
 	Timer timer;
 	public float ChaseDistance;
+	public float ChaseSpeed;
 	public override void Enter()
 	{
 		base.Enter();
+		enemyReferences.navMeshAgent.speed = ChaseSpeed;
 		player = GameObject.FindGameObjectWithTag("Player");
 		transform.LookAt(player.transform);
 		timer = Timer.CreateTimer(gameObject, 3, true, false);

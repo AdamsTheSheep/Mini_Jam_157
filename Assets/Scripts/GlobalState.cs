@@ -78,7 +78,7 @@ public class GlobalState : State
 		for (float i = -VisionRangeAngle / 2; i < VisionRangeAngle / 2; i++)
 		{
 			RaycastHit ray;
-			Physics.Raycast(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward,out ray);
+			Physics.Raycast(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward,out ray, VisionDistance);
 			if (ray.collider && ray.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
 			{
 				return true;

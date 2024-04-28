@@ -8,9 +8,11 @@ public class Roaming : State
 	public float RoamingTime;
 	Timer timer;
 	Vector3 target;
+	public float Speed;
 	public override void Enter()
 	{
 		base.Enter();
+		enemyReferences.navMeshAgent.speed = Speed;
 		if (GameObject.FindGameObjectWithTag("NavSurface") == null) {Debug.Log("There's no game object with tag \"NavSurface\""); return;}
 		var surface = GameObject.FindGameObjectWithTag("NavSurface").GetComponent<NavMeshSurface>();
         target = SetRandomDest(surface.navMeshData.sourceBounds);
