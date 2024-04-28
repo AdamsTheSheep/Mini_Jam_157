@@ -58,7 +58,7 @@ public class InteractableObjectiveBoxFixWire : MonoBehaviour, IInteractable
 		if (timer)
 		{
 			timer.isPaused = true;
-			Destroy(timer); 
+			Component.Destroy(timer);
 		}
 		PlayerUI.instance.interactableHoldProgressImage.gameObject.SetActive(false);
 		if (GameManager.PlayerHasWireTape || isFixed) PlayerUI.instance.holdInteractionText.gameObject.SetActive(false);

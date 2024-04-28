@@ -18,8 +18,7 @@ public class Chase : State
 
 	void OnTimerEnded()
 	{
-		enemyReferences.navMeshAgent.destination = player.transform.position;
-		if (enemyReferences.navMeshAgent.remainingDistance > ChaseDistance)
+		if (Vector3.Distance(enemyReferences.ParentTransform.position, player.transform.position) > ChaseDistance)
 		{
 			Transition(this, "FindState");
 		}
@@ -28,10 +27,7 @@ public class Chase : State
 	public override void StateUpdate()
 	{
 		base.StateUpdate();
-		if (enemyReferences.navMeshAgent.hasPath == false)
-		{
-			OnTimerEnded();
-		}
+		enemyReferences.navMeshAgent.destination = player.transform.position;
 	}
 
 	public override void Exit()
@@ -39,6 +35,6 @@ public class Chase : State
 		base.Exit();
 		enemyReferences.navMeshAgent.isStopped = true;
 		enemyReferences.navMeshAgent.ResetPath();
-		Destroy(timer);
+		Component.Destroy(timer);
 	}
 }

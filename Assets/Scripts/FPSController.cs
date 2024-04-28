@@ -16,7 +16,7 @@ public class FPSController : MonoBehaviour
 	public bool canMove = true;
 
 	new Transform transform;
-	Vector3 moveDirection = Vector3.zero;
+	public Vector3 moveDirection = Vector3.zero;
 	float rotationX = 0;
 	CharacterController characterController;
 
@@ -30,7 +30,7 @@ public class FPSController : MonoBehaviour
 
 	private void Update()
 	{
-		if (PlayerUI.instance.usingGenerator) return;
+		if (GameManager.usingGenerator) return;
 
 		//MOVEMENT
 		Vector3 forward = transform.TransformDirection(Vector3.forward);

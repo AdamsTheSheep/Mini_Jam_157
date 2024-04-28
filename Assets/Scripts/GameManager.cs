@@ -5,9 +5,10 @@ using UnityEngine;
 public static class GameManager
 {
 	public delegate void Event();
-
+	public delegate void SuspicionEvent(int ImpactLevel, Vector3 Location);
 	public delegate void StateEvent(State currentstate, string NextState);
 
+	public static bool usingGenerator;
 	public static bool playerHasFixedGenerator;
 	public static bool playerHasFixedWires;
 	public static bool playerHasFixedSwitch;
