@@ -27,7 +27,6 @@ public class GlobalState : State
 	}
 	public override void StateUpdate()
 	{
-		Debug.Log(AngerLevel + " - " + stateMachine.CurrentState);
 		var spottedPlayer = Vision();
 		base.StateUpdate();
 		if (spottedPlayer && stateMachine.CurrentState.GetType() != typeof(Chase))		//Condition for chase state
@@ -76,16 +75,15 @@ public class GlobalState : State
 
 	bool Vision()
 	{
-		Collider[] cols = Physics.OverlapSphere(transform.position, VisionDistance);
-		Vector3 characterToCollider;
-		float dot;
-		foreach (Collider collider in cols)
+		for (float i = -VisionRangeAngle / 2; i < VisionRangeAngle / 2; i++)
 		{
-			characterToCollider = (collider.transform.position-transform.position).normalized;
-			dot = Vector3.Dot(characterToCollider, transform.forward);
-			if (dot >= Mathf.Cos(VisionRangeAngle) && collider.gameObject.layer == LayerMask.NameToLayer("Player"))
-			{
-				return true;
+			var a = Physics.RaycastAll(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward,30);
+			foreach (RaycastHit ray in a)
+			{	
+				if (ray.collider && ray.collider.gameObject.tag == "Player")
+				{
+					return true;
+				}
 			}
 		}
 		return false;
