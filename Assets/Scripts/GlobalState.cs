@@ -77,13 +77,12 @@ public class GlobalState : State
 	{
 		for (float i = -VisionRangeAngle / 2; i < VisionRangeAngle / 2; i++)
 		{
-			var a = Physics.RaycastAll(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward,30);
-			foreach (RaycastHit ray in a)
-			{	
-				if (ray.collider && ray.collider.gameObject.tag == "Player")
-				{
-					return true;
-				}
+			RaycastHit ray;
+			Physics.Raycast(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward,out ray);
+			Debug.Log(ray.transform.name);
+			if (ray.collider && ray.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+			{
+				return true;
 			}
 		}
 		return false;
