@@ -282,13 +282,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nonSpatializedSFXAudioSource: {fileID: 1816524728930933722}
-  musicAudioSource: {fileID: 0}
-  randomAmbiantSounds: []
-  minTimeBetweenRandomSounds: 5
-  maxTimeBetweenRandomSounds: 20
+  musicAudioSource: {fileID: 1879377149383761907}
+  ambianceLoop:
+  - {fileID: 8300000, guid: 9bc7b4397c0ddcf4fb26ae7abf0c3a11, type: 3}
+  - {fileID: 8300000, guid: 41e5f26110445714d9f18706c1692cde, type: 3}
+  randomAmbiantSounds:
+  - {fileID: 8300000, guid: c2adf8b73195ac54480efb9853394af2, type: 3}
+  - {fileID: 8300000, guid: c59b57d1afaaa0a49a801047a6afcee2, type: 3}
+  - {fileID: 8300000, guid: a5cce0b0d4953e841a28a9d530125561, type: 3}
+  - {fileID: 8300000, guid: 38aef47dc8cd4234dabfd8ef3fbcc59c, type: 3}
+  - {fileID: 8300000, guid: 2a148b37c21223845b0cbb11a6365627, type: 3}
+  - {fileID: 8300000, guid: 26b7e04c7a1884249a8b46637df24b15, type: 3}
+  - {fileID: 8300000, guid: a3880197c2b32704ea13910fc2e8de8f, type: 3}
+  - {fileID: 8300000, guid: 0c97ae5ff65a45b45a8bfcd8e4d5feb8, type: 3}
+  - {fileID: 8300000, guid: 6610eed72cb3bf144847b561b4ee823a, type: 3}
+  - {fileID: 8300000, guid: 168a3c3bdebde7644b94dc8925a80370, type: 3}
+  - {fileID: 8300000, guid: efce7d6d0830b5d49b2b767a9e87572e, type: 3}
+  - {fileID: 8300000, guid: 450717882a0f4c24a928f4d96cbec189, type: 3}
+  - {fileID: 8300000, guid: 4f8aece3e3fb59546a56a73e8663e18f, type: 3}
+  - {fileID: 8300000, guid: 0429f2c9af5e001408db23f0df90c1d3, type: 3}
+  - {fileID: 8300000, guid: 11f617438fb83b249a4d50bbdfacf9a5, type: 3}
+  - {fileID: 8300000, guid: 4b3ecd3e02325414e85b005f1e801b71, type: 3}
+  - {fileID: 8300000, guid: 6ff743e92302eb44b99906b8c93a9aed, type: 3}
+  - {fileID: 8300000, guid: c8a845a9804ba4647be950b38ea43f52, type: 3}
+  - {fileID: 8300000, guid: 3697389df8b77654591882e81b75ac0c, type: 3}
+  - {fileID: 8300000, guid: 56f24ec4c15bb2640bc30b15b823d123, type: 3}
+  - {fileID: 8300000, guid: e98b1e939ea55cb43a8fba3e0bb5c40c, type: 3}
+  - {fileID: 8300000, guid: 0d7879eea5eba964b9b5123170e60243, type: 3}
+  - {fileID: 8300000, guid: bd22d5cc522f0d84ba1423331f111060, type: 3}
+  - {fileID: 8300000, guid: d82cc73cd664deb48838eac2d8ceb0e9, type: 3}
+  - {fileID: 8300000, guid: 805f64eb0e84fda438ddb4268c229ffd, type: 3}
+  - {fileID: 8300000, guid: 5dd146ce938c61c4fbfc157d4037c4ef, type: 3}
+  minTimeBetweenRandomSounds: 10
+  maxTimeBetweenRandomSounds: 30
   minRandomPitch: 0.9
   maxRandomPitch: 1.1
-  testClips: []
 --- !u!82 &1816524728930933722
 AudioSource:
   m_ObjectHideFlags: 0

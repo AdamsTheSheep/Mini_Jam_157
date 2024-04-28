@@ -11,7 +11,18 @@ public class InteractableObjectiveBoxFixWire : MonoBehaviour, IInteractable
 
 	[SerializeField] bool isFixed = false;
 
+	[SerializeField] float nextRandomSoundTime;
+	[SerializeField] float minTimeBetweenRandomSounds;
+	[SerializeField] float maxTimeBetweenRandomSounds;
+
+	Coroutine randomSfxCoroutine;
 	Timer timer;
+
+
+	private void Start()
+	{
+		randomSfxCoroutine = StartCoroutine(PlayAmbianceAtRandomTime());
+	}
 
 	public void Interact()
 	{
@@ -33,6 +44,7 @@ public class InteractableObjectiveBoxFixWire : MonoBehaviour, IInteractable
 
 		PlayerUI.instance.interactableHoldProgressImage.fillAmount = 0f;
 		PlayerUI.instance.interactableHoldProgressImage.gameObject.SetActive(true);
+		GetComponent<SpatializedAudio>().PlaySound();
 
 		if (!string.IsNullOrEmpty(holdInteractionText))
 		{
@@ -67,6 +79,7 @@ public class InteractableObjectiveBoxFixWire : MonoBehaviour, IInteractable
 	void SuccessfullyHold()
 	{
 		print($"{gameObject.name} successfully held");
+		StopCoroutine(randomSfxCoroutine);
 		PlayerUI.instance.holdInteractionText.text = holdInteractionFinishedText;
 		isFixed = true;
 		//TODO : set objective as completed, repair ligths etc
@@ -77,5 +90,21 @@ public class InteractableObjectiveBoxFixWire : MonoBehaviour, IInteractable
 	{
 		isFixed = false;
 		//TODO : alert player?
+	}
+
+	void PlayRandomSFX()
+	{
+		GetComponent<SpatializedAudio>().PlaySound(2);
+	}
+
+	IEnumerator PlayAmbianceAtRandomTime()
+	{
+		if (randomSfxCoroutine != null) StopCoroutine(randomSfxCoroutine);
+
+		nextRandomSoundTime = Random.Range(minTimeBetweenRandomSounds, maxTimeBetweenRandomSounds);
+		yield return new WaitForSeconds(nextRandomSoundTime);
+
+		PlayRandomSFX();
+		randomSfxCoroutine = StartCoroutine(PlayAmbianceAtRandomTime());
 	}
 }

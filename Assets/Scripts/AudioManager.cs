@@ -9,14 +9,14 @@ public class AudioManager : MonoBehaviour
 	[SerializeField] AudioSource musicAudioSource;
 
 	[Space(5)]
-	[Header("RANDOM AMBIANCE")]
+	[Header("AMBIANCE")]
+	[SerializeField] AudioClip[] ambianceLoop;
 	[SerializeField] List<AudioClip> randomAmbiantSounds;
 	[SerializeField] float minTimeBetweenRandomSounds = 5f;
 	[SerializeField] float maxTimeBetweenRandomSounds = 20f;
 	[SerializeField] float minRandomPitch = .9f;
 	[SerializeField] float maxRandomPitch = 1.1f;
 
-	[SerializeField] AudioClip[] testClips;
 
 	public static AudioManager instance;
 
@@ -30,14 +30,10 @@ public class AudioManager : MonoBehaviour
 		if (instance) Destroy(instance.gameObject);
 		instance = this;
 
-		if(randomAmbiantSounds.Count > 0)
-		StartCoroutine(PlayAmbianceAtRandomTime());
-	}
+		if(randomAmbiantSounds.Count > 0) StartCoroutine(PlayAmbianceAtRandomTime());
 
-	//private void Start()
-	//{
-	//	PlayMusics(testClips);
-	//}
+		PlayMusics(ambianceLoop);
+	}
 
 	public void PlayNonSpatializedSFX(AudioClip clip, bool randomPitch = false)
 	{
@@ -49,6 +45,7 @@ public class AudioManager : MonoBehaviour
 	{
 		nextRandomSoundTime = Random.Range(minTimeBetweenRandomSounds, maxTimeBetweenRandomSounds);
 		yield return new WaitForSeconds(nextRandomSoundTime);
+		print("Play random ambiance sfx");
 		PlayNonSpatializedSFX(randomAmbiantSounds[Random.Range(0, randomAmbiantSounds.Count)]);
 		StartCoroutine(PlayAmbianceAtRandomTime());
 	}

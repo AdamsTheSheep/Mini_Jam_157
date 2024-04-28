@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 {
-	[SerializeField] SpatializedAudio audio;
+	[SerializeField] new SpatializedAudio audio;
 
 	bool inFillAnimation;
 	[SerializeField] GameObject generatorUI;
@@ -17,6 +18,23 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 	float targetFill;
 	float animationCurveProgress;
 	float animationCurveValue;
+
+	[SerializeField] float nextRandomSoundTime;
+	[SerializeField] float minTimeBetweenRandomSounds;
+	[SerializeField] float maxTimeBetweenRandomSounds;
+
+	Coroutine randomSfxCoroutine;
+
+	private void Start()
+	{
+		GeneratorUIReferencer referencer = FindAnyObjectByType<GeneratorUIReferencer>(FindObjectsInactive.Include);
+		generatorUI = referencer.generatorUI;
+		generatorUIRT = referencer.generatorUIRT;
+		generatorFill = referencer.generatorFill;
+		generatorTriggerPosition = referencer.generatorTriggerPosition;
+	
+		randomSfxCoroutine = StartCoroutine(PlayAmbianceAtRandomTime());
+	}
 
 	public void Interact()
 	{
@@ -45,6 +63,7 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 					generatorFill.fillAmount = Mathf.Min(targetFill, animationCurveValue);
 					if (generatorFill.fillAmount >= .99f)
 					{
+						StopCoroutine(randomSfxCoroutine);
 						GameManager.usingGenerator = false;
 						PlayerUI.instance.FixGenerator();
 						audio.PlayLoop();
@@ -75,6 +94,7 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
+			CancelInvoke();
 			GameManager.usingGenerator = false;
 			generatorUI.SetActive(false);
 		}
@@ -86,5 +106,21 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 		GameManager.usingGenerator = true;
 		generatorFill.fillAmount = 0f;
 		animationCurveProgress = 0f;
+	}
+
+	void PlayRandomSFX()
+	{
+		GetComponent<SpatializedAudio>().PlaySound(2);
+	}
+
+	IEnumerator PlayAmbianceAtRandomTime()
+	{
+		if (randomSfxCoroutine != null) StopCoroutine(randomSfxCoroutine);
+
+		nextRandomSoundTime = Random.Range(minTimeBetweenRandomSounds, maxTimeBetweenRandomSounds);
+		yield return new WaitForSeconds(nextRandomSoundTime);
+
+		PlayRandomSFX();
+		randomSfxCoroutine = StartCoroutine(PlayAmbianceAtRandomTime());
 	}
 }

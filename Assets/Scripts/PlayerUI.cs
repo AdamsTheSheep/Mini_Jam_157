@@ -17,6 +17,10 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] Color defaultColor;
     [SerializeField] Color errorColor;
     [SerializeField] TextMeshProUGUI inventoryText;
+    [SerializeField] TextMeshProUGUI timerText;
+    
+    [SerializeField] float timeLeft;
+    bool lastMinuteSounsPlaying = false;
 
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject winScreen;
@@ -28,6 +32,35 @@ public class PlayerUI : MonoBehaviour
         if (instance) Destroy(instance.gameObject);
         instance = this;
 	}
+
+    private void Update()
+    {
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+            DisplayTime(timeLeft);
+            if(timeLeft<60 && !lastMinuteSounsPlaying)
+            {
+                lastMinuteSounsPlaying = true;
+                foreach (var item in FindObjectsByType<EmergencyLight>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                {
+                    item.StartSound();
+                }
+            }
+        }
+        else
+        {
+            print("Time Is Up");
+        }
+    }
+
+    void DisplayTime(float time)
+    {
+        time++;
+        float minutes = Mathf.FloorToInt(time / 60f);
+        float seconds = Mathf.FloorToInt(time % 60f);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
 
     public void ShowWireTapeMissingMessage()
     {
