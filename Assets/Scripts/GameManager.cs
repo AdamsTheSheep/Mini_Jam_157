@@ -5,7 +5,7 @@ using UnityEngine;
 public static class GameManager
 {
 	public delegate void Event();
-	public delegate void SuspicionEvent(int Level, Vector3 pos);
+	public delegate void SuspicionEvent(int ImpactLevel, Vector3 Location);
 	public delegate void StateEvent(State currentstate, string NextState);
 
 	public static bool playerHasFixedGenerator;
