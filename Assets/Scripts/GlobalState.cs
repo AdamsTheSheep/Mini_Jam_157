@@ -79,7 +79,6 @@ public class GlobalState : State
 		{
 			RaycastHit ray;
 			Physics.Raycast(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward,out ray);
-			Debug.Log(ray.transform.name);
 			if (ray.collider && ray.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
 			{
 				return true;
