@@ -25,6 +25,15 @@ public class Chase : State
 		}
 	}
 
+	public override void StateUpdate()
+	{
+		base.StateUpdate();
+		if (enemyReferences.navMeshAgent.hasPath == false)
+		{
+			OnTimerEnded();
+		}
+	}
+
 	public override void Exit()
 	{
 		base.Exit();

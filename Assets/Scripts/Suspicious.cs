@@ -17,8 +17,11 @@ public class Suspicious : State
 		}
 		pos = player.transform.position;
 		enemyReferences.navMeshAgent.destination = pos;
-		timer = Timer.CreateTimer(gameObject,15,false,true);
-		timer.OnTimerEnded += OnTimerEnded;
+		if (timer == null)
+		{
+			timer = Timer.CreateTimer(gameObject,15,false,true);
+			timer.OnTimerEnded += OnTimerEnded;
+		}
 	}
 
 	public override void StateUpdate()

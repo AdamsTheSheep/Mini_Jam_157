@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerCollider
   - NavSurface
+  - Enemy
   layers:
   - Default
   - TransparentFX

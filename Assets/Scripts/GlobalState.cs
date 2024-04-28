@@ -15,6 +15,7 @@ public class GlobalState : State
 	}
 	public override void StateUpdate()
 	{
+		Debug.Log(stateMachine.CurrentState);
 		var spottedPlayer = Vision();
 		base.StateUpdate();
 		if (spottedPlayer && stateMachine.CurrentState.GetType() != typeof(Chase))		//Condition for chase state
@@ -25,7 +26,7 @@ public class GlobalState : State
 
 	void trigger()
 	{
-		Transition(stateMachine.CurrentState, "Suspicious");
+		if (stateMachine.CurrentState.GetType() != typeof(Chase)) Transition(stateMachine.CurrentState, "Suspicious");
 	}
 
 	bool Vision()
@@ -39,6 +40,7 @@ public class GlobalState : State
 			dot = Vector3.Dot(characterToCollider, transform.forward);
 			if (dot >= Mathf.Cos(VisionRangeAngle) && collider.gameObject.layer == LayerMask.NameToLayer("Player"))
 			{
+				Debug.Log(collider.gameObject.name);
 				return true;
 			}
 		}
