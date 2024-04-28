@@ -65,6 +65,7 @@ public class StateMachine : MonoBehaviour
 		CurrentState.Exit();
 		CurrentState = nextstate;
 		CurrentState.Enter();
+		Debug.Log(CurrentState);
 	}
 }
 
