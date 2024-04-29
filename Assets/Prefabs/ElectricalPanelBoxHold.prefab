@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdTime: 5
-  holdInteractionText: 
-  holdInteractionFinishedText: 
+  holdInteractionText: Hold to turn the switch on
+  holdInteractionFinishedText: Switch turned on!
   nextRandomSoundTime: 0
-  minTimeBetweenRandomSounds: 0
-  maxTimeBetweenRandomSounds: 0
+  minTimeBetweenRandomSounds: 3
+  maxTimeBetweenRandomSounds: 10

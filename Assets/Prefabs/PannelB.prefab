@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1067513494677338833}
   - component: {fileID: 7327847929089140555}
   - component: {fileID: 7432211909239197789}
-  - component: {fileID: 6067687732950438258}
+  - component: {fileID: -7067044070486102410}
   m_Layer: 0
   m_Name: PannelB
   m_TagString: Untagged
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6067687732950438258
+--- !u!114 &-7067044070486102410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdTime: 5
-  holdInteractionText: Holding
-  holdInteractionFinishedText: Finished
+  holdInteractionText: Hold to turn the switch on
+  holdInteractionFinishedText: Switch turned on!
   nextRandomSoundTime: 0
-  minTimeBetweenRandomSounds: 5
-  maxTimeBetweenRandomSounds: 8
+  minTimeBetweenRandomSounds: 3
+  maxTimeBetweenRandomSounds: 10

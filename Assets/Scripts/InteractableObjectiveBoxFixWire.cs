@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpatializedAudio))]
 public class InteractableObjectiveBoxFixWire : MonoBehaviour, IInteractable
 {
 	[SerializeField] float holdTime = 5f;

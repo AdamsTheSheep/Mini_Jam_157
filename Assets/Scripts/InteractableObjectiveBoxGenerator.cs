@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(SpatializedAudio))]
 public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 {
 	[SerializeField] new SpatializedAudio audio;
@@ -72,12 +74,12 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 				}
 				return;
 			}
-
 			//Press E to try booting generator when not in fill animation
 			else if (Input.GetKeyDown(KeyCode.E))
 			{
 				audio.PlaySound(1);
 				//Check if trigger is in correct zone
+				Debug.Log(animationCurveValue + " - " + successGeneratorTriggerPosition);
 				if (animationCurveValue <= successGeneratorTriggerPosition)
 				{
 					if (animationCurveProgress > 1 / generatorTriggerPositionCurveSpeed / 2) animationCurveProgress = 0f;
