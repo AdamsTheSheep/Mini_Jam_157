@@ -8,7 +8,7 @@ public class InteractableObjectiveBoxHold : MonoBehaviour, IInteractable
 	[SerializeField] float holdTime = 5f;
 	[SerializeField] string holdInteractionText;
 	[SerializeField] string holdInteractionFinishedText;
-
+	[SerializeField] bool Finished = false;
 	[SerializeField] float nextRandomSoundTime;
 	[SerializeField] float minTimeBetweenRandomSounds;
 	[SerializeField] float maxTimeBetweenRandomSounds;
@@ -24,7 +24,7 @@ public class InteractableObjectiveBoxHold : MonoBehaviour, IInteractable
 	public void Interact()
 	{
 		Debug.Log($"Interacted with {gameObject.name}");
-
+		if (Finished) return;
 		PlayerUI.instance.interactableHoldProgressImage.fillAmount = 0f;
 		PlayerUI.instance.interactableHoldProgressImage.gameObject.SetActive(true);
 
@@ -61,9 +61,11 @@ public class InteractableObjectiveBoxHold : MonoBehaviour, IInteractable
 	void SuccessfullyHold()
 	{
 		print($"{gameObject.name} successfully held");
-
+		Finished = true;
+		GetComponent<SpatializedAudio>().PlaySound();
 		StopCoroutine(randomSfxCoroutine);
-		PlayerUI.instance.FixSwitch();
+		GameManager.objectiveCount --;
+		PlayerUI.CheckAllFixed();
 		//TODO : set objective as completed, repair ligths etc
 	}
 

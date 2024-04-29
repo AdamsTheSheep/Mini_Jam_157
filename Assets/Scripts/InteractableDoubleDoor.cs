@@ -18,7 +18,7 @@ public class InteractableDoubleDoor : MonoBehaviour, IInteractable
 	{
 		Debug.Log($"Interacted with {gameObject.name}");
 
-		if (!GameManager.playerHasFixedAll || isAnimating) return;
+		if (GameManager.objectiveCount <= 0 || isAnimating) return;
 
 		isAnimating = true;
 		if (isOpen)

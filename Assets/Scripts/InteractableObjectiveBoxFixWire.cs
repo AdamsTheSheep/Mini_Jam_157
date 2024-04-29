@@ -82,9 +82,10 @@ public class InteractableObjectiveBoxFixWire : MonoBehaviour, IInteractable
 		print($"{gameObject.name} successfully held");
 		StopCoroutine(randomSfxCoroutine);
 		PlayerUI.instance.holdInteractionText.text = holdInteractionFinishedText;
+		GetComponent<SpatializedAudio>().PlayLoop();
 		isFixed = true;
 		//TODO : set objective as completed, repair ligths etc
-		PlayerUI.instance.FixWires();
+		GameManager.objectiveCount --;
 	}
 
 	void Break()

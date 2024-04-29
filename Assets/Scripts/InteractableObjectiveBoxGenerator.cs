@@ -20,7 +20,7 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 	float targetFill;
 	float animationCurveProgress;
 	float animationCurveValue;
-
+	bool isFixed;
 	[SerializeField] float nextRandomSoundTime;
 	[SerializeField] float minTimeBetweenRandomSounds;
 	[SerializeField] float maxTimeBetweenRandomSounds;
@@ -40,7 +40,7 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 
 	public void Interact()
 	{
-		if(!GameManager.playerHasFixedGenerator)
+		if(!isFixed)
 			StartGeneratorMinigame();
 	}
 
@@ -67,7 +67,8 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 					{
 						StopCoroutine(randomSfxCoroutine);
 						GameManager.usingGenerator = false;
-						PlayerUI.instance.FixGenerator();
+						GameManager.objectiveCount --;
+						generatorUI.SetActive(false);
 						audio.PlayLoop();
 					}
 					if (animationCurveValue > targetFill) inFillAnimation = false;
@@ -79,7 +80,6 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 			{
 				audio.PlaySound(1);
 				//Check if trigger is in correct zone
-				Debug.Log(animationCurveValue + " - " + successGeneratorTriggerPosition);
 				if (animationCurveValue <= successGeneratorTriggerPosition)
 				{
 					if (animationCurveProgress > 1 / generatorTriggerPositionCurveSpeed / 2) animationCurveProgress = 0f;

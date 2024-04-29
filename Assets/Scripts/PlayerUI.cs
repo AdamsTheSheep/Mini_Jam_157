@@ -118,29 +118,11 @@ public class PlayerUI : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void FixSwitch()
+    public static void CheckAllFixed()
     {
-        GameManager.playerHasFixedSwitch = true;
-        CheckAllFixed();
-    }
-
-    public void FixWires()
-    {
-        GameManager.playerHasFixedWires = true;
-        CheckAllFixed();
-    }
-
-    public void FixGenerator()
-    {
-        GameManager.playerHasFixedGenerator = true;
-        CheckAllFixed();
-    }
-
-    void CheckAllFixed()
-    {
-        if (GameManager.playerHasFixedSwitch && GameManager.playerHasFixedWires && GameManager.playerHasFixedGenerator)
+        if (GameManager.objectiveCount <= 0)
         {
-            GameManager.playerHasFixedAll = true;
+            // Open doors
         }
     }
 

@@ -10,12 +10,25 @@ public static class GameManager
 	public delegate void SuspicionEvent(int ImpactLevel, Vector3 Location);
 	public delegate void StateEvent(State currentstate, string NextState);
 
+	public static GameManager.Event OpenDoors;
+
 	public static bool usingGenerator;
-	public static bool playerHasFixedGenerator;
-	public static bool playerHasFixedWires;
-	public static bool playerHasFixedSwitch;
-	public static bool playerHasFixedAll;
+	public static int count;
+	public static int objectiveCount
+	{
+		set { CheckAllFixed(value); }
+		get {return GameManager.count;}
+	}
 	private static bool playerHasWireTape;
+
+	public static void CheckAllFixed(int value)
+    {
+		GameManager.count = value;
+        if (GameManager.objectiveCount <= 0)
+        {
+            if (OpenDoors != null) OpenDoors();
+        }
+    }
 
 	public static bool PlayerHasWireTape
 	{

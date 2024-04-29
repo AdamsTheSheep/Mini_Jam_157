@@ -32,13 +32,14 @@ public class SpatializedAudio : MonoBehaviour
 				bank = soundBank1;
 				break;
 		}
-
+		if (bank.Length <= 0) return;
 		AudioClip clip = bank[Random.Range(0, bank.Length)];
 		audioSource.PlayOneShot(clip);
 	}
 
 	public void PlayLoop()
 	{
+		if (loopClips.Length <= 0) return;
 		if (loopCoroutine != null) StopCoroutine(loopCoroutine);
 		loopCoroutine = StartCoroutine(InternalPlayList(loopClips));
 	}
