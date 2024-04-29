@@ -6,12 +6,14 @@ public class Chase : State
 {
 	GameObject player;
 	Timer timer;
-	Timer LightsOffTimer;
 	public float ChaseDistance;
 	public float ChaseSpeed;
+	bool CanAttack;
+	Timer AttackCooldown;
 	public override void Enter()
 	{
 		base.Enter();
+		CanAttack = true;
 		enemyReferences.navMeshAgent.speed = ChaseSpeed;
 		player = GameObject.FindGameObjectWithTag("Player");
 		transform.LookAt(player.transform);
@@ -29,6 +31,7 @@ public class Chase : State
 
 	public override void StateUpdate()
 	{
+		base.StateUpdate();
 		var lights = GameObject.FindGameObjectsWithTag("Light");
 		foreach (var light in lights)
 		{
@@ -37,8 +40,26 @@ public class Chase : State
 				light.GetComponent<Lights>().Turnoff();
 			}
 		}
-		base.StateUpdate();
+
+		if (Vector3.Distance(enemyReferences.ParentTransform.position, player.transform.position) < 3 && CanAttack)
+		{
+			enemyReferences.animator.speed = 1f;
+			enemyReferences.animator.SetInteger("CurrentState", ((int)EntityAnimController.States.Attack));
+			CanAttack = false;
+			AttackCooldown = Timer.CreateTimer(gameObject,3,false,true);
+			AttackCooldown.OnTimerEnded += OnCoolDownEnded;
+		}
+
+		if (EntityAnimController.isAttacking && Vector3.Distance(enemyReferences.transform.position, player.transform.position) < 2)
+		{
+			Debug.Log("Lost");
+		}
 		enemyReferences.navMeshAgent.destination = player.transform.position;
+	}
+
+	void OnCoolDownEnded()
+	{
+		CanAttack = true;
 	}
 
 	public override void Exit()

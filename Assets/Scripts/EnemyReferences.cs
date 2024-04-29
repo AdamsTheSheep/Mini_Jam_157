@@ -8,4 +8,6 @@ public class EnemyReferences : MonoBehaviour
     public NavMeshAgent navMeshAgent;
 	public Transform ParentTransform;
 	public Transform Foot;
+	public Animator animator;
+	public StateMachine stateMachine;
 }
