@@ -75,13 +75,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1064537153669024973}
-  walkSpeed: 6
-  runSpeed: 12
+  walkSpeed: 3
+  runSpeed: 6
   jumpPower: 7
   gravity: 10
   lookSpeed: 2
   lookXLimit: 45
   canMove: 1
+  isRunning: 1
   moveDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &3197686029294826240
 GameObject:
@@ -716,6 +717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a310c5a81eabf4695cb5cc9e2868fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBetweenSteps: 0.7
+  timeBetweenStepsRun: 0.5
   controller: {fileID: 7387876882238665131}
 --- !u!82 &8420295206016052044
 AudioSource:
@@ -728,7 +731,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -773,7 +776,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -830,7 +833,6 @@ MonoBehaviour:
   soundBank1:
   - {fileID: 8300000, guid: 7e41c46d297954443868078a893faaee, type: 3}
   - {fileID: 8300000, guid: 9fd72b8cb9abe934ab4e7eb57ad7edc1, type: 3}
-  - {fileID: 8300000, guid: ed6d943fa1baf424abc23e659bfce395, type: 3}
   - {fileID: 8300000, guid: 17db87723e20bc146900ae04ba01e7b2, type: 3}
   - {fileID: 8300000, guid: 8730ea1660c1eb24c8b68737287045b0, type: 3}
   - {fileID: 8300000, guid: f082aa9e71abca14aad8960895776dda, type: 3}

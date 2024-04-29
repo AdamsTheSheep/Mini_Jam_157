@@ -14,6 +14,7 @@ public class FPSController : MonoBehaviour
 	[SerializeField] float lookXLimit = 45f;
 
 	public bool canMove = true;
+	public bool isRunning = true;
 
 	new Transform transform;
 	public Vector3 moveDirection = Vector3.zero;
@@ -30,17 +31,17 @@ public class FPSController : MonoBehaviour
 
 	private void Update()
 	{
-		if (GameManager.usingGenerator) return;
 
 		//MOVEMENT
 		Vector3 forward = transform.TransformDirection(Vector3.forward);
 		Vector3 right = transform.TransformDirection(Vector3.right);
 
-		bool isRunning = Input.GetKey(KeyCode.LeftShift);
+		isRunning = Input.GetKey(KeyCode.LeftShift);
 		float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
 		float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
 		float movementDirectionY = moveDirection.y;
 		moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+		if (GameManager.usingGenerator) return;
 
 		//JUMPING
 		if (Input.GetButton("Jump") && canMove && characterController.isGrounded) moveDirection.y = jumpPower;

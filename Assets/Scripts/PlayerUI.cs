@@ -62,13 +62,15 @@ public class PlayerUI : MonoBehaviour
     {
         Time.timeScale = 0f;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         gameOverScreen.SetActive(true);
-    }
+	}
 
     public void ShowWinScreen()
 	{
 		Time.timeScale = 0f;
 		Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 		winScreen.SetActive(true);
 	}
 
