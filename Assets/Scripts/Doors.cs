@@ -9,10 +9,15 @@ public class Doors : MonoBehaviour
 	[SerializeField] Vector3 closedPosition;
 	[SerializeField] float animationDuration;
 	[SerializeField] bool startOpen;
-	[SerializeField] bool isOpen;
+	bool isAnimating;
+	Vector3 InitialPos;
+	public bool isOpen;
 
 	private void Start()
 	{
+		InitialPos = transform.localPosition;
+		openPosition = InitialPos + openPosition;
+		closedPosition = InitialPos + closedPosition;
 		if(startOpen) door.transform.localPosition = openPosition;
 		isOpen = true;
 	}
@@ -20,19 +25,21 @@ public class Doors : MonoBehaviour
 	[ContextMenu("OpenDoor")]
 	public void Open()
 	{
+		if (!isOpen && !isAnimating)
 		StartCoroutine(OpenDoor());
 	}
 
 	[ContextMenu("CloseDoor")]
 	public void Close()
 	{
+		if (isOpen && !isAnimating)
 		StartCoroutine (CloseDoor());
 	}
 
 	public IEnumerator OpenDoor()
 	{
 		float currentAnimationTime = 0f;
-
+		isAnimating = true;
 		while (currentAnimationTime < animationDuration)
 		{
 			currentAnimationTime += Time.deltaTime;
@@ -41,13 +48,14 @@ public class Doors : MonoBehaviour
 		}
 
 		door.transform.localPosition = openPosition;
+		isAnimating = false;
 		isOpen = true;
 	}
 
 	public IEnumerator CloseDoor()
 	{
 		float currentAnimationTime = 0f;
-
+		isAnimating = true;
 		while (currentAnimationTime < animationDuration)
 		{
 			currentAnimationTime += Time.deltaTime;
@@ -56,6 +64,7 @@ public class Doors : MonoBehaviour
 		}
 
 		door.transform.localPosition = closedPosition;
+		isAnimating = false;
 		isOpen = false;
 	}
 }

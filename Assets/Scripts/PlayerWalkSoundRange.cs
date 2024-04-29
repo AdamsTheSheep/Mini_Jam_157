@@ -14,6 +14,10 @@ public class PlayerWalkSoundRange : MonoBehaviour
 		{
 			ActivateSound();
 		}
+		if (Input.GetMouseButtonDown(0) == true)
+		{
+			GameManager.CloseDoor();
+		}
 	}
 
 	void ActivateSound()

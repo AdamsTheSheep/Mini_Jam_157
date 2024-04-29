@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3618418811721632873}
   m_Layer: 0
   m_Name: DoorB
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 7095749425412920898}
-  openPosition: {x: 0, y: 0, z: 0}
+  openPosition: {x: 0, y: 0, z: 1}
   closedPosition: {x: 0, y: 0, z: 0}
-  animationDuration: 0
+  animationDuration: 0.3
   startOpen: 1
   isOpen: 0

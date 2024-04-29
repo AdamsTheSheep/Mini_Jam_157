@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5660947636265891114}
   - component: {fileID: 8183708388822526138}
   - component: {fileID: 1645306238300665051}
+  - component: {fileID: 5760923216666336836}
   m_Layer: 0
   m_Name: Generator
   m_TagString: Untagged
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8274133419916619345, guid: 58a1cd8ee9d215443aaa288f908c72f1, type: 3}
+  - {fileID: 2100000, guid: 960c66fe350943949aa90f12e021a645, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,3 +106,32 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.009187046, y: 0.011771441, z: 0.01921129}
   m_Center: {x: 0.00084855163, y: -0.0021407488, z: 0.003998873}
+--- !u!114 &5760923216666336836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588039282467587246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c826d85038691f45aab5aa4ebd77a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 0}
+  generatorUI: {fileID: 0}
+  generatorUIRT: {fileID: 0}
+  generatorFill: {fileID: 0}
+  generatorTriggerPosition: {fileID: 0}
+  successGeneratorTriggerPosition: 0
+  generatorFillProgressPerSuccess: 0
+  generatorTriggerPositionCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  generatorTriggerPositionCurveSpeed: 0
+  nextRandomSoundTime: 0
+  minTimeBetweenRandomSounds: 0
+  maxTimeBetweenRandomSounds: 0

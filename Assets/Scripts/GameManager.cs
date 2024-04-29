@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public static class GameManager
@@ -23,5 +25,20 @@ public static class GameManager
 			playerHasWireTape = value;
 			PlayerUI.instance.UpdateWireTapeUI();
 		}
+	}
+
+	public static void CloseDoor()
+	{
+		GameObject[] closables = new List<GameObject>().ToArray();
+		var doors = GameObject.FindGameObjectsWithTag("Door");
+		foreach (var door in doors)
+		{
+			if (door.GetComponent<Doors>().isOpen == true)
+			{
+				closables = closables.Append(door).ToArray();
+			}
+		}
+		var chosen = closables[Random.Range(0,closables.Length)].GetComponent<Doors>();
+		chosen.Close();
 	}
 }

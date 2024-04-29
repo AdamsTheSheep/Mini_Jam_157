@@ -14,7 +14,7 @@ public class GlobalState : State
 	public int AngerLevel
 	{
 		set {setAnger(value);}
-		get {return Math.Clamp(anger,0,4);}
+		get {return Math.Clamp(anger,0,5);}
 	}
 	[SerializeField] Timer timer;
 	StateMachine stateMachine;
@@ -39,7 +39,7 @@ public class GlobalState : State
 
 	public void setAnger(int value)
 	{
-		anger = Math.Clamp(value,0,4);
+		anger = Math.Clamp(value,0,5);
 		if (timer.isPaused && AngerLevel > 0)
 		{
 			timer.Begin();
@@ -60,10 +60,10 @@ public class GlobalState : State
 			{
 				case 0:
 					break;
-				case 1:
+				case 1: case 2:
 					Transition(stateMachine.CurrentState, "Rotate");
 					break;
-				case var x when (x > 3 && Vector3.Distance(enemyReferences.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 15):
+				case var x when (x > 4 && Vector3.Distance(enemyReferences.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 15):
 					Transition(stateMachine.CurrentState, "Chase");
 					break;
 				default:
