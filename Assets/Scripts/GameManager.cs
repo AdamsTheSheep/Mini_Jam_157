@@ -23,6 +23,7 @@ public static class GameManager
 
 	public static void CheckAllFixed(int value)
     {
+		if (value < objectiveCount) GameManager.CloseDoor();
 		GameManager.count = value;
         if (GameManager.objectiveCount <= 0)
         {

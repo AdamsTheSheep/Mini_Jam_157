@@ -65,7 +65,7 @@ public class InteractableObjectiveBoxHold : MonoBehaviour, IInteractable
 		GetComponent<SpatializedAudio>().PlaySound();
 		StopCoroutine(randomSfxCoroutine);
 		GameManager.objectiveCount --;
-		PlayerUI.CheckAllFixed();
+		GlobalState.TriggerSuspicion(1, transform.position);
 		//TODO : set objective as completed, repair ligths etc
 	}
 

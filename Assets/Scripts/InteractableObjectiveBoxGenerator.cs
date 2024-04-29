@@ -68,6 +68,7 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 						StopCoroutine(randomSfxCoroutine);
 						GameManager.usingGenerator = false;
 						GameManager.objectiveCount --;
+						GlobalState.TriggerSuspicion(1, transform.position);
 						generatorUI.SetActive(false);
 						audio.PlayLoop();
 					}
