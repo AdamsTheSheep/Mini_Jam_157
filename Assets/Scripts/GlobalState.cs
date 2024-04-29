@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
@@ -9,8 +10,8 @@ public class GlobalState : State
 {
 	public float VisionRangeAngle = 55;
 	public float VisionDistance = 5;
-	int anger;
-	int AngerLevel
+	public int anger;
+	public int AngerLevel
 	{
 		set {setAnger(value);}
 		get {return Math.Clamp(anger,0,4);}
@@ -36,7 +37,7 @@ public class GlobalState : State
 		}
 	}
 
-	void setAnger(int value)
+	public void setAnger(int value)
 	{
 		anger = Math.Clamp(value,0,4);
 		if (timer.isPaused && AngerLevel > 0)
@@ -52,9 +53,9 @@ public class GlobalState : State
 
 	void trigger(int Level, Vector3 pos)
 	{
-		AngerLevel += Level;
 		if (stateMachine.CurrentState.GetType() != typeof(Chase))
 		{
+			AngerLevel += Level;
 			switch (AngerLevel)
 			{
 				case 0:
@@ -79,6 +80,7 @@ public class GlobalState : State
 		{
 			RaycastHit ray;
 			Physics.Raycast(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward,out ray, VisionDistance);
+			Debug.DrawRay(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward * VisionDistance, Color.red);
 			if (ray.collider && ray.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
 			{
 				return true;

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 490311368811648959}
   - component: {fileID: 375498476211441056}
   - component: {fileID: 76691388128099995}
+  - component: {fileID: 2646560876519397301}
   m_Layer: 0
   m_Name: PannelA
   m_TagString: Untagged
@@ -105,3 +106,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2646560876519397301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919475124134090271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56df820865b513841ba08f20f143e77a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdTime: 5
+  alreadyFixedMessage: Fixed
+  holdInteractionText: Holding
+  holdInteractionFinishedText: Finished
+  isFixed: 0
+  nextRandomSoundTime: 0
+  minTimeBetweenRandomSounds: 5
+  maxTimeBetweenRandomSounds: 8

@@ -344,11 +344,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 0.3, y: 0.15, z: 0.3}
+  m_Extents: {x: 0.25, y: 0.3, z: 0.1}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0.25}
   m_TimeToStationary: 0.5
 --- !u!114 &186107731866823419
 MonoBehaviour:
@@ -373,7 +373,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: ac486433924b87a42b4eba52e5bda80d, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: ac486433924b87a42b4eba52e5bda80d, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0

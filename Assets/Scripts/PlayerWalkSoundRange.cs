@@ -23,6 +23,7 @@ public class PlayerWalkSoundRange : MonoBehaviour
 		{
 			if (collider.gameObject.tag == "Enemy")
 			{
+				Debug.Log("Triggeded");
 				GlobalState.TriggerSuspicion(1, transform.parent.position);
 				var timer = Timer.CreateTimer(gameObject, 5,false, true);
 				timer.OnTimerEnded += OnTimerEnded;

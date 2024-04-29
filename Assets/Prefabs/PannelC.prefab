@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7164919758665562903}
   - component: {fileID: 3942193957695724567}
   - component: {fileID: 43827137506025227}
+  - component: {fileID: 7376765731352484780}
   m_Layer: 0
   m_Name: PannelC
   m_TagString: Untagged
@@ -105,3 +106,32 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7376765731352484780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548710347393544676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c826d85038691f45aab5aa4ebd77a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 0}
+  generatorUI: {fileID: 0}
+  generatorUIRT: {fileID: 0}
+  generatorFill: {fileID: 0}
+  generatorTriggerPosition: {fileID: 0}
+  successGeneratorTriggerPosition: 0
+  generatorFillProgressPerSuccess: 0
+  generatorTriggerPositionCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  generatorTriggerPositionCurveSpeed: 0
+  nextRandomSoundTime: 0
+  minTimeBetweenRandomSounds: 0
+  maxTimeBetweenRandomSounds: 0
