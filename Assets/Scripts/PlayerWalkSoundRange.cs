@@ -18,6 +18,7 @@ public class PlayerWalkSoundRange : MonoBehaviour
 
 	void ActivateSound()
 	{
+		if (GetComponent<AudioSource>().isPlaying == false) GetComponent<SpatializedAudio>().PlaySound();
 		var colliders = Physics.OverlapBox(transform.position,transform.localScale / 2);
 		foreach (var collider in colliders)
 		{

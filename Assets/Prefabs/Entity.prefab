@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyReferences: {fileID: 0}
-  ChaseDistance: 20
+  ChaseDistance: 15
   ChaseSpeed: 5
 --- !u!114 &6401352900722354744
 MonoBehaviour:
