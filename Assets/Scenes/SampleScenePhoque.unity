@@ -1341,7 +1341,7 @@ MonoBehaviour:
   errorColor: {r: 0.735849, g: 0.12842648, b: 0.12842648, a: 1}
   inventoryText: {fileID: 924032206}
   timerText: {fileID: 325840425}
-  timeLeft: 300
+  timeLeft: 61
   gameOverScreen: {fileID: 1482276210}
   winScreen: {fileID: 118264882}
   playerDeathSounds:
