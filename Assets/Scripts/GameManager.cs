@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public static class GameManager
@@ -43,16 +44,18 @@ public static class GameManager
 
 	public static void CloseDoor()
 	{
-		GameObject[] closables = new List<GameObject>().ToArray();
-		var doors = GameObject.FindGameObjectsWithTag("Door");
-		foreach (var door in doors)
+		Doors[] doors = GameObject.FindObjectsByType<Doors>(FindObjectsSortMode.None);
+			Debug.Log($"Found {doors.Count()} doors");
+		Doors[] closables = doors.Where(x => x.isOpen && x.canMonsterInteract).ToArray();
+			Debug.Log($"{closables.Count()} doors are closable");
+		if (closables.Length == 0)
 		{
-			if (door.GetComponent<Doors>().isOpen == true)
-			{
-				closables = closables.Append(door).ToArray();
-			}
+			Debug.Log("no doors available to close");
+			return;
 		}
+
 		var chosen = closables[Random.Range(0,closables.Length)].GetComponent<Doors>();
 		chosen.Close();
+			Debug.Log($"Closed {chosen.gameObject.name}");
 	}
 }

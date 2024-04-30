@@ -9,6 +9,8 @@ public class Doors : MonoBehaviour
 	[SerializeField] Vector3 closedPosition;
 	[SerializeField] float animationDuration;
 	[SerializeField] bool startOpen;
+	public bool canMonsterInteract = true;
+
 	bool isAnimating;
 	Vector3 InitialPos;
 	public bool isOpen;

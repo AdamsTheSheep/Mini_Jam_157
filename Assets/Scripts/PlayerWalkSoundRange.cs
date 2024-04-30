@@ -35,7 +35,7 @@ public class PlayerWalkSoundRange : MonoBehaviour
 			CancelInvoke();
 			InvokeRepeating("PlayStepSound", 0f, timeBetweenSteps);
 		}
-		else if((controller.moveDirection.x == 0 && controller.moveDirection.z == 0) || !CanSendSound)
+		else if((controller.moveDirection.x == 0 && controller.moveDirection.z == 0))
 		{
 			playingRun = false;
 			playingWalk = false;

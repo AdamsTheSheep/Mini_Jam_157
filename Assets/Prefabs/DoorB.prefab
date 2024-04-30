@@ -140,4 +140,5 @@ MonoBehaviour:
   closedPosition: {x: 0, y: 0, z: 0}
   animationDuration: 0.3
   startOpen: 1
+  canMonsterInteract: 1
   isOpen: 0
