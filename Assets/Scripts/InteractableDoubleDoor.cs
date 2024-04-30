@@ -35,6 +35,7 @@ public class InteractableDoubleDoor : MonoBehaviour, IInteractable
 
 	IEnumerator OpenDoor()
 	{
+		GetComponent<SpatializedAudio>().PlaySound();
 		float currentAnimationTime = 0f;
 
 		while (currentAnimationTime < animationDuration)
@@ -53,6 +54,7 @@ public class InteractableDoubleDoor : MonoBehaviour, IInteractable
 
 	IEnumerator CloseDoor()
 	{
+		GetComponent<SpatializedAudio>().PlaySound(2);
 		float currentAnimationTime = 0f;
 
 		while (currentAnimationTime < animationDuration)

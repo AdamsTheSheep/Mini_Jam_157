@@ -65,11 +65,12 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 					generatorFill.fillAmount = Mathf.Min(targetFill, animationCurveValue);
 					if (generatorFill.fillAmount >= .99f)
 					{
+						generatorUI.SetActive(false);
+						CancelInvoke();
 						StopCoroutine(randomSfxCoroutine);
 						GameManager.usingGenerator = false;
 						GameManager.objectiveCount --;
 						PlayerUI.PlaySound(gameObject,transform.position);
-						generatorUI.SetActive(false);
 						audio.PlayLoop();
 					}
 					if (animationCurveValue > targetFill) inFillAnimation = false;

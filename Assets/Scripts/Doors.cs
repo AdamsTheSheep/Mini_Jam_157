@@ -40,6 +40,7 @@ public class Doors : MonoBehaviour
 
 	public IEnumerator OpenDoor()
 	{
+		GetComponent<SpatializedAudio>().PlaySound();
 		float currentAnimationTime = 0f;
 		isAnimating = true;
 		while (currentAnimationTime < animationDuration)
@@ -56,6 +57,7 @@ public class Doors : MonoBehaviour
 
 	public IEnumerator CloseDoor()
 	{
+		GetComponent<SpatializedAudio>().PlaySound(2);
 		float currentAnimationTime = 0f;
 		isAnimating = true;
 		while (currentAnimationTime < animationDuration)
