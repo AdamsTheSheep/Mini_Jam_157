@@ -34,7 +34,6 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 		generatorUIRT = referencer.generatorUIRT;
 		generatorFill = referencer.generatorFill;
 		generatorTriggerPosition = referencer.generatorTriggerPosition;
-	
 		randomSfxCoroutine = StartCoroutine(PlayAmbianceAtRandomTime());
 	}
 
@@ -42,6 +41,7 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 	{
 		if(!isFixed)
 			StartGeneratorMinigame();
+			PlayerUI.PlaySound(gameObject,transform.position);
 	}
 
 	public void StopInteract()
@@ -68,7 +68,7 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 						StopCoroutine(randomSfxCoroutine);
 						GameManager.usingGenerator = false;
 						GameManager.objectiveCount --;
-						GlobalState.TriggerSuspicion(1, transform.position);
+						PlayerUI.PlaySound(gameObject,transform.position);
 						generatorUI.SetActive(false);
 						audio.PlayLoop();
 					}

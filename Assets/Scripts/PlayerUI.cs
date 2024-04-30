@@ -137,4 +137,19 @@ public class PlayerUI : MonoBehaviour
         AudioManager.instance.PlayNonSpatializedSFX(playerDeathSounds[Random.Range(0, playerDeathSounds.Length)]);
         GameOver();
     }
+
+	public static bool CanSendSound = true;
+	public static void PlaySound(GameObject gameObject, Vector3 pos)
+	{
+		if (!CanSendSound) return;
+		GlobalState.TriggerSuspicion(2, pos);
+		var timer = Timer.CreateTimer(gameObject, 3,false, true);
+		timer.OnTimerEnded += OnTimerEnded;
+		CanSendSound = false;
+	}
+
+	public static void OnTimerEnded()
+	{
+		CanSendSound = true;
+	}
 }

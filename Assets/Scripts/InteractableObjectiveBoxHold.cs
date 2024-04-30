@@ -27,7 +27,7 @@ public class InteractableObjectiveBoxHold : MonoBehaviour, IInteractable
 		if (Finished) return;
 		PlayerUI.instance.interactableHoldProgressImage.fillAmount = 0f;
 		PlayerUI.instance.interactableHoldProgressImage.gameObject.SetActive(true);
-
+		PlayerUI.PlaySound(gameObject,transform.position);
 		if (!string.IsNullOrEmpty(holdInteractionText))
 		{
 			PlayerUI.instance.holdInteractionText.gameObject.SetActive(true);
@@ -65,7 +65,7 @@ public class InteractableObjectiveBoxHold : MonoBehaviour, IInteractable
 		GetComponent<SpatializedAudio>().PlaySound();
 		StopCoroutine(randomSfxCoroutine);
 		GameManager.objectiveCount --;
-		GlobalState.TriggerSuspicion(1, transform.position);
+		PlayerUI.PlaySound(gameObject,transform.position);
 		//TODO : set objective as completed, repair ligths etc
 	}
 

@@ -10,6 +10,7 @@ public class InteractableSwitch : MonoBehaviour, IInteractable
 	{
 		Debug.Log($"Interacted with {gameObject.name}");
 		itemToSwitch.SetActive(!itemToSwitch.activeSelf);
+		PlayerUI.PlaySound(gameObject,transform.position);
 	}
 
 	public void StopInteract() { }
