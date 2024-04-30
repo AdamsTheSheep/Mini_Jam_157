@@ -33,6 +33,8 @@ public class PlayerUI : MonoBehaviour
         if (instance) Destroy(instance.gameObject);
         instance = this;
 
+        GameManager.ResetStaticValues();
+
         Time.timeScale = 1f;
         Cursor.visible = false;
 		GameLost += GameOver;

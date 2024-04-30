@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6345044794628255494}
+  - component: {fileID: 1823130947595619825}
+  - component: {fileID: 3889865368168028867}
   m_Layer: 0
   m_Name: DoubleDoor 1
   m_TagString: Untagged
@@ -33,6 +35,48 @@ Transform:
   - {fileID: 7741728595554739888}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1823130947595619825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793674237877989614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f6eaa123e5dfb41a72b7843e40296a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftDoor: {fileID: 2880571034149921075}
+  rightDoor: {fileID: 3518510432078102444}
+  leftOpenPosition: {x: 0, y: 0, z: 2}
+  rightOpenPosition: {x: 0, y: 0, z: -1}
+  leftClosedPosition: {x: 0, y: 0, z: 1}
+  rightClosedPosition: {x: 0, y: 0, z: 0}
+  animationDuration: 1
+  isOpen: 0
+  isAnimating: 0
+--- !u!65 &3889865368168028867
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793674237877989614}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0.5}
 --- !u!1 &2880571034149921075
 GameObject:
   m_ObjectHideFlags: 0
