@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Lights : MonoBehaviour
 {
 	public float OffTime = 20;
+	public bool CanTurnOn = true;
 
 	public void Turnoff()
 	{
@@ -13,11 +15,13 @@ public class Lights : MonoBehaviour
 			var timer = Timer.CreateTimer(transform.parent.gameObject, OffTime, false,true);
 			timer.OnTimerEnded += OnTimerEnded;
 			transform.GetChild(0).gameObject.SetActive(true);
+			GetComponent<NavMeshObstacle>().enabled = false;
 		}
 	}
 
 	void OnTimerEnded()
 	{
-		gameObject.GetComponent<Animation>().Play();
+		if (CanTurnOn) {gameObject.GetComponent<Animation>().Play(); GetComponent<NavMeshObstacle>().enabled = true;}
+		
 	}
 }

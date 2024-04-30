@@ -85,6 +85,20 @@ public class Chase : State
 		enemyReferences.navMeshAgent.ResetPath();
 		monsterAudio.StopLoop();
 		CancelInvoke();
+		BreakLight();
 		Component.Destroy(timer);
+	}
+
+	void BreakLight()
+	{
+		var lights = GameObject.FindGameObjectsWithTag("Light");
+		var rand = Random.Range(0, lights.Length);
+		if (lights[rand].GetComponent<Lights>().CanTurnOn == false)
+		{
+			BreakLight();
+			return;
+		}
+		lights[rand].GetComponent<Lights>().Turnoff();
+		lights[rand].GetComponent<Lights>().CanTurnOn = false;
 	}
 }
