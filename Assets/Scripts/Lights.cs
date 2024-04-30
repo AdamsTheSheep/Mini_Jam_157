@@ -8,17 +8,16 @@ public class Lights : MonoBehaviour
 
 	public void Turnoff()
 	{
-		if (gameObject.activeSelf == true)
+		if (transform.GetChild(0).gameObject.activeSelf == false)
 		{
 			var timer = Timer.CreateTimer(transform.parent.gameObject, OffTime, false,true);
 			timer.OnTimerEnded += OnTimerEnded;
-			gameObject.SetActive(false);
+			transform.GetChild(0).gameObject.SetActive(true);
 		}
 	}
 
 	void OnTimerEnded()
 	{
-		gameObject.SetActive(true);
 		gameObject.GetComponent<Animation>().Play();
 	}
 }

@@ -18,7 +18,7 @@ public class EntityAnimController : MonoBehaviour
 				else references.animator.SetInteger("CurrentState",((int)States.Idle2));
 				break;
 			case Roaming:
-				references.animator.speed = 1f;
+				references.animator.speed = 0.75f;
 				references.animator.SetInteger("CurrentState", ((int)States.Move));
 				break;
 			case Suspicious:

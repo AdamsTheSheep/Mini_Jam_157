@@ -25,7 +25,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject winScreen;
     [SerializeField] AudioClip[] playerDeathSounds;
-
+	public static GameManager.Event GameLost;
     Timer timer;
 
     private void Awake()
@@ -35,6 +35,7 @@ public class PlayerUI : MonoBehaviour
 
         Time.timeScale = 1f;
         Cursor.visible = false;
+		GameLost += GameOver;
 	}
 
 	private void Update()
@@ -64,7 +65,7 @@ public class PlayerUI : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         gameOverScreen.SetActive(true);
-	}
+    }
 
     public void ShowWinScreen()
 	{

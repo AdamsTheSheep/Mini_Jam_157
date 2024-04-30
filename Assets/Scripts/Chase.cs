@@ -52,7 +52,7 @@ public class Chase : State
 
 		if (EntityAnimController.isAttacking && Vector3.Distance(enemyReferences.transform.position, player.transform.position) < 2)
 		{
-			Debug.Log("Lost");
+			PlayerUI.GameLost();
 		}
 		enemyReferences.navMeshAgent.destination = player.transform.position;
 	}

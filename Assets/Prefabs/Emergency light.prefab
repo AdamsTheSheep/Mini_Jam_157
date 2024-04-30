@@ -225,11 +225,9 @@ GameObject:
   - component: {fileID: 5168860484261458290}
   - component: {fileID: 8162052087361155230}
   - component: {fileID: 2837901227662128146}
-  - component: {fileID: 186107731866823419}
-  - component: {fileID: 5922086907251588852}
   m_Layer: 0
   m_Name: Point Light
-  m_TagString: Light
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,32 +348,3 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.25}
   m_TimeToStationary: 0.5
---- !u!114 &186107731866823419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4513823913475275382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e90fcaa63e89b3045befad7062fff811, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OffTime: 20
---- !u!111 &5922086907251588852
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4513823913475275382}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: ac486433924b87a42b4eba52e5bda80d, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: ac486433924b87a42b4eba52e5bda80d, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
