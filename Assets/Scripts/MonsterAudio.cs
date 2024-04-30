@@ -11,6 +11,7 @@ public class MonsterAudio : MonoBehaviour
 	[SerializeField] AudioClip[] steps;
 	[SerializeField] AudioClip[] rage;
 	[SerializeField] AudioClip[] idle;
+	[SerializeField] AudioClip[] attacks;
 	[SerializeField] AudioClip[] breathing;
 
 	Coroutine loopCoroutine;
@@ -34,6 +35,11 @@ public class MonsterAudio : MonoBehaviour
 	public void PlayIdle()
 	{
 		PlaySound(idle);
+	}
+
+	public void PlayAttack()
+	{
+		PlaySound(attacks);
 	}
 
 	void PlaySound(AudioClip[] clips)

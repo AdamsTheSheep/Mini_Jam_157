@@ -431,6 +431,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 32562bd827ca0f74c88105cb2b186c08, type: 3}
   - {fileID: 8300000, guid: 85b1a63fee0616f42ba49399794d545d, type: 3}
   - {fileID: 8300000, guid: 09d0b09d0788e27439018b953d25b6bc, type: 3}
+  attacks:
+  - {fileID: 8300000, guid: 567bc7522a8e5c5459f7b15b46bdd0fa, type: 3}
+  - {fileID: 8300000, guid: 9305a9c4d5e1a96408bce1b9462da961, type: 3}
+  - {fileID: 8300000, guid: f2b066ebc7d22424f8224613a17319bd, type: 3}
+  - {fileID: 8300000, guid: c7a10c95ce66f9f48bc1cbdd7727ea1a, type: 3}
+  - {fileID: 8300000, guid: bb5d5aa0178f9454aa8d65ac247f9497, type: 3}
+  - {fileID: 8300000, guid: f6b260102fc945b4691213e5c178fcf1, type: 3}
+  - {fileID: 8300000, guid: 67901d592eb8c0a469fe59e5057e34ad, type: 3}
+  - {fileID: 8300000, guid: 39d6fce3a7db73d41b0ad9406c8b88f0, type: 3}
+  - {fileID: 8300000, guid: 8a007e48dec8dc048ab93ae151fc4a5c, type: 3}
   breathing:
   - {fileID: 8300000, guid: 58002c0d5b5ac894dbc7a55ced468f56, type: 3}
   - {fileID: 8300000, guid: 7e0884b0018571b4aa0a59b4ccb12186, type: 3}

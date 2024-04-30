@@ -61,6 +61,7 @@ public class Chase : State
 			enemyReferences.animator.speed = 1f;
 			enemyReferences.animator.SetInteger("CurrentState", ((int)EntityAnimController.States.Attack));
 			CanAttack = false;
+			monsterAudio.PlayAttack();
 			AttackCooldown = Timer.CreateTimer(gameObject,3,false,true);
 			AttackCooldown.OnTimerEnded += OnCoolDownEnded;
 		}
