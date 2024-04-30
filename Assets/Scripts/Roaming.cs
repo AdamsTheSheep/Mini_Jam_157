@@ -5,13 +5,22 @@ using UnityEngine;
 
 public class Roaming : State
 {
+	MonsterAudio monsterAudio;
 	public float RoamingTime;
 	Timer timer;
 	Vector3 target;
 	public float Speed;
+	Coroutine idleTimerCoroutine;
+
+	private void Awake()
+	{
+		monsterAudio = GetComponent<MonsterAudio>();
+	}
 	public override void Enter()
 	{
 		base.Enter();
+		InvokeRepeating("MonsterAudioPlaySteps", 0, .6f);
+		idleTimerCoroutine = StartCoroutine(MonsterAudioPlayIdle());
 		enemyReferences.navMeshAgent.speed = Speed;
 		if (GameObject.FindGameObjectWithTag("NavSurface") == null) {Debug.Log("There's no game object with tag \"NavSurface\""); return;}
 		var surface = GameObject.FindGameObjectWithTag("NavSurface").GetComponent<NavMeshSurface>();
@@ -20,6 +29,18 @@ public class Roaming : State
 		enemyReferences.navMeshAgent.SetDestination(target);
 		timer = Timer.CreateTimer(gameObject, RoamingTime,false,true);
 		timer.OnTimerEnded += OnTimerEnded;
+	}
+
+	void MonsterAudioPlaySteps()
+	{
+		monsterAudio.PlaySteps();
+	}
+
+	IEnumerator MonsterAudioPlayIdle()
+	{
+		yield return new WaitForSeconds(Random.Range(3f, 10f));
+		monsterAudio.PlayIdle();
+		idleTimerCoroutine = StartCoroutine(MonsterAudioPlayIdle());
 	}
 
 	private void OnTimerEnded()
@@ -38,6 +59,8 @@ public class Roaming : State
 	public override void Exit()
 	{
 		base.Exit();
+		StopCoroutine(idleTimerCoroutine);
+		CancelInvoke();
 		enemyReferences.navMeshAgent.isStopped = true;
 		enemyReferences.navMeshAgent.ResetPath();
 	}

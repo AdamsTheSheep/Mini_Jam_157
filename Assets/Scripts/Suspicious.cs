@@ -5,12 +5,21 @@ using UnityEngine;
 
 public class Suspicious : State
 {
+	MonsterAudio monsterAudio;
 	Timer timer;
 	public static Vector3 SoundPosition;
 	public float Speed;
+	Coroutine idleTimerCoroutine;
+	
+	private void Awake()
+	{
+		monsterAudio = GetComponent<MonsterAudio>();
+	}
 	public override void Enter()
 	{
 		base.Enter();
+		InvokeRepeating("MonsterAudioPlaySteps", 0, .6f);
+		idleTimerCoroutine = StartCoroutine(MonsterAudioPlayIdle());
 		enemyReferences.navMeshAgent.speed = Speed;
 		enemyReferences.navMeshAgent.destination = SoundPosition;
 		if (timer == null)
@@ -18,6 +27,18 @@ public class Suspicious : State
 			timer = Timer.CreateTimer(gameObject,15,false,true);
 			timer.OnTimerEnded += OnTimerEnded;
 		}
+	}
+
+	void MonsterAudioPlaySteps()
+	{
+		monsterAudio.PlaySteps();
+	}
+
+	IEnumerator MonsterAudioPlayIdle()
+	{
+		yield return new WaitForSeconds(Random.Range(3f, 10f));
+		monsterAudio.PlayIdle();
+		idleTimerCoroutine = StartCoroutine(MonsterAudioPlayIdle());
 	}
 
 	public override void StateUpdate()
@@ -38,6 +59,8 @@ public class Suspicious : State
 	{
 		enemyReferences.navMeshAgent.isStopped = true;
 		enemyReferences.navMeshAgent.ResetPath();
+		StopCoroutine(idleTimerCoroutine);
+		CancelInvoke();
 		Transition(this, "Chase");
 	}
 

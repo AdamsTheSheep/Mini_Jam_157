@@ -4,21 +4,36 @@ using UnityEngine;
 
 public class Chase : State
 {
+	MonsterAudio monsterAudio;
 	GameObject player;
 	Timer timer;
 	public float ChaseDistance;
 	public float ChaseSpeed;
 	bool CanAttack;
 	Timer AttackCooldown;
+
+	private void Awake()
+	{
+		monsterAudio = GetComponent<MonsterAudio>();
+	}
+
 	public override void Enter()
 	{
 		base.Enter();
+		monsterAudio.PlayRage();
+		monsterAudio.PlayLoop();
+		InvokeRepeating("MonsterAudioPlaySteps", 0, .4f);
 		CanAttack = true;
 		enemyReferences.navMeshAgent.speed = ChaseSpeed;
 		player = GameObject.FindGameObjectWithTag("Player");
 		transform.LookAt(player.transform);
 		timer = Timer.CreateTimer(gameObject, 5, true, false);
 		timer.OnTimerEnded += OnTimerEnded;
+	}
+
+	void MonsterAudioPlaySteps()
+	{
+		monsterAudio.PlaySteps();
 	}
 
 	void OnTimerEnded()
@@ -68,6 +83,8 @@ public class Chase : State
 		gameObject.GetComponent<GlobalState>().setAnger(1);
 		enemyReferences.navMeshAgent.isStopped = true;
 		enemyReferences.navMeshAgent.ResetPath();
+		monsterAudio.StopLoop();
+		CancelInvoke();
 		Component.Destroy(timer);
 	}
 }
