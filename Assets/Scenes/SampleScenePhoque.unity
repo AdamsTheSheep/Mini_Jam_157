@@ -125,6 +125,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &387874764 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7465879573707204251, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 903593742}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &903593742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,6 +139,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1879287402665252868, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+        type: 3}
+      propertyPath: m_AutoTraverseOffMeshLink
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2678897743248576892, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
         type: 3}
       propertyPath: m_Name
@@ -186,6 +197,26 @@ PrefabInstance:
     - target: {fileID: 3336958088092199964, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6425732107154239031, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+        type: 3}
+      propertyPath: ParentTransform
+      value: 
+      objectReference: {fileID: 387874764}
+    - target: {fileID: 6739583353743017135, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+        type: 3}
+      propertyPath: VisionDistance
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739583353743017135, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+        type: 3}
+      propertyPath: VisionRangeAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465879573707204251, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

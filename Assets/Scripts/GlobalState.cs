@@ -77,12 +77,9 @@ public class GlobalState : State
 		for (float i = -VisionRangeAngle / 2; i < VisionRangeAngle / 2; i++)
 		{
 			RaycastHit ray;
-			Physics.Raycast(enemyReferences.ParentTransform.position,Quaternion.AngleAxis(i, Vector3.up) * enemyReferences.ParentTransform.forward,out ray, VisionDistance);
-			Debug.DrawRay(enemyReferences.ParentTransform.position,Quaternion.AngleAxis(i, Vector3.up) * enemyReferences.ParentTransform.forward * VisionDistance, Color.red);
-			if (ray.collider && ray.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
-			{
-				return true;
-			}
+			Physics.Raycast(transform.position,Quaternion.AngleAxis(i, Vector3.up) * enemyReferences.ParentTransform.forward,out ray, VisionDistance);
+			Debug.DrawRay(transform.position,Quaternion.AngleAxis(i, Vector3.up) * enemyReferences.ParentTransform.forward * VisionDistance, Color.red);
+			if (ray.collider && ray.collider.gameObject.layer == LayerMask.NameToLayer("Player")) {return true;}
 		}
 		return false;
 	}
