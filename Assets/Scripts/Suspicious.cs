@@ -66,6 +66,7 @@ public class Suspicious : State
 		enemyReferences.navMeshAgent.ResetPath();
 		StopCoroutine(idleTimerCoroutine);
 		CancelInvoke();
+		Component.Destroy(timer);
 
 	}
 

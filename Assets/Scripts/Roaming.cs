@@ -62,6 +62,7 @@ public class Roaming : State
 		CancelInvoke();
 		enemyReferences.navMeshAgent.isStopped = true;
 		enemyReferences.navMeshAgent.ResetPath();
+		Component.Destroy(timer);
 	}
 
 	Vector3 SetRandomDest(Bounds bounds)

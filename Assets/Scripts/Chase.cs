@@ -45,7 +45,7 @@ public class Chase : State
 		}
 	}
 
-	public override void StateFixedUpdate()
+	public override void StateUpdate()
 	{
 		base.StateFixedUpdate();
 		var lights = GameObject.FindGameObjectsWithTag("Light");
@@ -57,19 +57,17 @@ public class Chase : State
 			}
 		}
 
-		if ((Vision(AttackDistance) && CanAttack) || (CanAttack && Vector3.Distance(enemyReferences.transform.position,player.transform.position) < 1))
+		if ((Vision(AttackDistance) && CanAttack) || (CanAttack && Vector3.Distance(enemyReferences.transform.position,player.transform.position) <= 0.1))
 		{
 			enemyReferences.animator.speed = 1f;
 			enemyReferences.animator.SetInteger("CurrentState", ((int)EntityAnimController.States.Attack));
-			Debug.Log(enemyReferences.animator.GetInteger("CurrentState"));
 			CanAttack = false;
 			monsterAudio.PlayAttack();
-			EntityAnimController.isAttacking = true;
 			AttackCooldown = Timer.CreateTimer(gameObject,3,false,true);
 			AttackCooldown.OnTimerEnded += OnCoolDownEnded;
 		}
 
-		if (EntityAnimController.isAttacking && Vision(AttackDistance - 1)|| (EntityAnimController.isAttacking && Vector3.Distance(enemyReferences.transform.position,player.transform.position) < 1))
+		if (EntityAnimController.isAttacking && Vision(AttackDistance - 1)|| (EntityAnimController.isAttacking && Vector3.Distance(enemyReferences.transform.position,player.transform.position) <= 0.1))
 		{
 			GameObject.FindAnyObjectByType<PlayerUI>().GameLost();
 		}

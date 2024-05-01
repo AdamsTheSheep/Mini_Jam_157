@@ -7,6 +7,7 @@ public class EnemyAttack : StateMachineBehaviour
 	public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
 		base.OnStateEnter(animator, stateInfo, layerIndex);
+		EntityAnimController.isAttacking = true;
 	}
 
 	public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -14,6 +15,12 @@ public class EnemyAttack : StateMachineBehaviour
 		base.OnStateUpdate(animator, stateInfo, layerIndex);
 		if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0)) EntityAnimController.isAttacking = false;
 
+	}
+
+	public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+	{
+		base.OnStateExit(animator, stateInfo, layerIndex);
+		EntityAnimController.isAttacking = false;
 	}
 	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	//override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

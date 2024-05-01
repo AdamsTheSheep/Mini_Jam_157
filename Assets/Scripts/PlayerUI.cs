@@ -31,7 +31,6 @@ public class PlayerUI : MonoBehaviour
 
     private void Awake()
     {
-		DontDestroyOnLoad(gameObject);
         if (instance) Destroy(instance.gameObject);
         instance = this;
         GameManager.ResetStaticValues();

@@ -6,10 +6,14 @@ public class EntityAnimController : MonoBehaviour
 {
 	public enum States {Idle1, Idle2, Move, Attack}
 	public EnemyReferences references;
-	public static bool isAttacking;
+	public static bool isAttacking = false;
+
+	void Start()
+	{
+		isAttacking = false;
+	}
     void Update()
     {
-		
         switch (references.stateMachine.CurrentState)
 		{
 			case FindState:
