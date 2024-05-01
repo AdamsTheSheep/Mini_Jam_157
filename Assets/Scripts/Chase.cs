@@ -57,7 +57,7 @@ public class Chase : State
 			}
 		}
 
-		if ((Vision(AttackDistance) && CanAttack) || (CanAttack && Vector3.Distance(enemyReferences.transform.position,player.transform.position) <= 0.1))
+		if ((Vision(AttackDistance) && CanAttack) || (CanAttack && Vector3.Distance(enemyReferences.transform.position,player.transform.position) <= 0.4))
 		{
 			enemyReferences.animator.speed = 1f;
 			enemyReferences.animator.SetInteger("CurrentState", ((int)EntityAnimController.States.Attack));
@@ -67,7 +67,7 @@ public class Chase : State
 			AttackCooldown.OnTimerEnded += OnCoolDownEnded;
 		}
 
-		if (EntityAnimController.isAttacking && Vision(AttackDistance - 1)|| (EntityAnimController.isAttacking && Vector3.Distance(enemyReferences.transform.position,player.transform.position) <= 0.1))
+		if (EntityAnimController.isAttacking && Vision(AttackDistance - 1)|| (EntityAnimController.isAttacking && Vector3.Distance(enemyReferences.transform.position,player.transform.position) <= 0.4))
 		{
 			GameObject.FindAnyObjectByType<PlayerUI>().GameLost();
 		}

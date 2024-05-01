@@ -44,7 +44,8 @@ public class Suspicious : State
 	public override void StateUpdate()
 	{
 		base.StateUpdate();
-		if (Vector3.Distance(enemyReferences.ParentTransform.position, SoundPosition) < 1)
+		Debug.Log(Vector3.Distance(enemyReferences.Foot.position, SoundPosition));
+		if (Vector3.Distance(enemyReferences.Foot.position, SoundPosition) < 1.2)
 		{
 			enemyReferences.navMeshAgent.isStopped = true;
 			enemyReferences.navMeshAgent.ResetPath();
