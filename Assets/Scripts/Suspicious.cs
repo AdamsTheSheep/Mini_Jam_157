@@ -18,13 +18,13 @@ public class Suspicious : State
 	public override void Enter()
 	{
 		base.Enter();
-		InvokeRepeating("MonsterAudioPlaySteps", 0, .6f);
+		InvokeRepeating("MonsterAudioPlaySteps", 0, .562f);
 		idleTimerCoroutine = StartCoroutine(MonsterAudioPlayIdle());
 		enemyReferences.navMeshAgent.speed = Speed;
 		enemyReferences.navMeshAgent.destination = SoundPosition;
 		if (timer == null)
 		{
-			timer = Timer.CreateTimer(gameObject,15,false,true);
+			timer = Timer.CreateTimer(gameObject,20,false,true);
 			timer.OnTimerEnded += OnTimerEnded;
 		}
 	}

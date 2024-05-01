@@ -29,7 +29,7 @@ public class InteractableObjectiveBoxGenerator : MonoBehaviour, IInteractable
 
 	private void Start()
 	{
-		GeneratorUIReferencer referencer = FindAnyObjectByType<GeneratorUIReferencer>(FindObjectsInactive.Include);
+		GeneratorUIReferencer referencer = PlayerUI.instance.GetComponentInChildren<GeneratorUIReferencer>(true);
 		generatorUI = referencer.generatorUI;
 		generatorUIRT = referencer.generatorUIRT;
 		generatorFill = referencer.generatorFill;

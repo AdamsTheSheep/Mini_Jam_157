@@ -22,7 +22,7 @@ public class EntityAnimController : MonoBehaviour
 				references.animator.SetInteger("CurrentState", ((int)States.Move));
 				break;
 			case Suspicious:
-				references.animator.speed = 1.5f;
+				references.animator.speed = 1.25f;
 				references.animator.SetInteger("CurrentState", ((int)States.Move));
 				break;
 			case Chase:
