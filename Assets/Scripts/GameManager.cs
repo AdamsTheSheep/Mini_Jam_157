@@ -14,19 +14,29 @@ public static class GameManager
 	public static GameManager.Event OpenDoors;
 
 	public static bool usingGenerator;
-	public static int count;
+	public static int count = 3;
 	public static int objectiveCount
 	{
-		set { CheckAllFixed(value); }
-		get {return GameManager.count;}
+		get { return GameManager.count; }
+		set
+		{
+			count = value;
+			CheckAllFixed(value);
+		}
 	}
 	private static bool playerHasWireTape;
+
+	public static void ResetStaticValues()
+	{
+		usingGenerator = false;
+		playerHasWireTape = false;
+		count = 3;
+	}
 
 	public static void CheckAllFixed(int value)
     {
 		if (value < objectiveCount) GameManager.CloseDoor();
-		GameManager.count = value;
-        if (GameManager.objectiveCount <= 0)
+        if (objectiveCount <= 0)
         {
             if (OpenDoors != null) OpenDoors();
         }
