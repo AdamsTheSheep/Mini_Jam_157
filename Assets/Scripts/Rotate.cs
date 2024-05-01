@@ -5,21 +5,26 @@ using UnityEngine;
 
 public class Rotate : State
 {
-	public float RotateSpeed = 0.1f;
-	Vector3 RotateTowards;
+	public float RotateSpeed = 5f;
+	Quaternion RotateTowards;
+	Quaternion startRotation;
+	float rotationProgress;
     public override void Enter()
 	{
 		base.Enter();
-		RotateTowards = Quaternion.AngleAxis(UnityEngine.Random.Range(90, 180), Vector3.right) * enemyReferences.ParentTransform.forward;
+		rotationProgress = 0;
+		startRotation = enemyReferences.ParentTransform.rotation;
+		RotateTowards = Quaternion.Euler(enemyReferences.ParentTransform.rotation.eulerAngles.x, UnityEngine.Random.Range(90,270), enemyReferences.ParentTransform.rotation.eulerAngles.z);
 	}
 
 	public override void StateFixedUpdate()
 	{
-		base.StateFixedUpdate();
-		Vector3 relativePos = RotateTowards - enemyReferences.ParentTransform.position;
-		Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-		enemyReferences.ParentTransform.rotation = Quaternion.Lerp(enemyReferences.ParentTransform.rotation, rotation, Time.time * RotateSpeed);
-		if (Math.Abs(enemyReferences.ParentTransform.rotation.eulerAngles.y - rotation.eulerAngles.y) < 1)
+		if (rotationProgress < 1 && rotationProgress >= 0)
+		{
+       		rotationProgress += Time.deltaTime * RotateSpeed;
+        	enemyReferences.ParentTransform.rotation = Quaternion.Lerp(startRotation, RotateTowards, rotationProgress);
+    	}
+		if (rotationProgress >= 1)
 		{
 			Transition(this, "FindState");
 		}

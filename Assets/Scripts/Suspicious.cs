@@ -44,8 +44,7 @@ public class Suspicious : State
 	public override void StateUpdate()
 	{
 		base.StateUpdate();
-		Debug.Log(Vector3.Distance(enemyReferences.ParentTransform.position,enemyReferences.navMeshAgent.destination));
-		if (Vector3.Distance(enemyReferences.ParentTransform.position,enemyReferences.navMeshAgent.destination) < 1)
+		if (Vector3.Distance(enemyReferences.ParentTransform.position, SoundPosition) < 1)
 		{
 			enemyReferences.navMeshAgent.isStopped = true;
 			enemyReferences.navMeshAgent.ResetPath();
@@ -57,11 +56,17 @@ public class Suspicious : State
 	}
 	void OnTimerEnded()
 	{
+		Transition(this, "FindState");
+	}
+
+	public override void Exit()
+	{
+		base.Exit();
 		enemyReferences.navMeshAgent.isStopped = true;
 		enemyReferences.navMeshAgent.ResetPath();
 		StopCoroutine(idleTimerCoroutine);
 		CancelInvoke();
-		Transition(this, "Chase");
+
 	}
 
 }

@@ -24,7 +24,6 @@ public class Roaming : State
 		enemyReferences.navMeshAgent.speed = Speed;
 		if (GameObject.FindGameObjectWithTag("NavSurface") == null) {Debug.Log("There's no game object with tag \"NavSurface\""); return;}
 		var surface = GameObject.FindGameObjectWithTag("NavSurface").GetComponent<NavMeshSurface>();
-		Debug.Log(GameObject.FindGameObjectWithTag("NavSurface").transform.name);
         target = SetRandomDest(surface.navMeshData.sourceBounds);
 		enemyReferences.navMeshAgent.SetDestination(target);
 		timer = Timer.CreateTimer(gameObject, RoamingTime,false,true);

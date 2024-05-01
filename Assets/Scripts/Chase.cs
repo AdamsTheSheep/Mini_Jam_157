@@ -9,6 +9,7 @@ public class Chase : State
 	Timer timer;
 	public float ChaseDistance;
 	public float ChaseSpeed;
+	public float AttackDistance = 3;
 	bool CanAttack;
 	Timer AttackCooldown;
 
@@ -56,7 +57,7 @@ public class Chase : State
 			}
 		}
 
-		if (Vector3.Distance(enemyReferences.ParentTransform.position, player.transform.position) < 3 && CanAttack)
+		if (Vision() && CanAttack)
 		{
 			enemyReferences.animator.speed = 1f;
 			enemyReferences.animator.SetInteger("CurrentState", ((int)EntityAnimController.States.Attack));
@@ -101,5 +102,20 @@ public class Chase : State
 		}
 		lights[rand].GetComponent<Lights>().Turnoff();
 		lights[rand].GetComponent<Lights>().CanTurnOn = false;
+	}
+
+	bool Vision()
+	{
+		for (float i = -180 / 2; i < 180 / 2; i++)
+		{
+			RaycastHit ray;
+			Physics.Raycast(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward,out ray, AttackDistance);
+			Debug.DrawRay(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward * AttackDistance, Color.yellow);
+			if (ray.collider && ray.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }

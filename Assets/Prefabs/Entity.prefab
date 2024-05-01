@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyReferences: {fileID: 0}
-  RotateSpeed: 0.05
+  RotateSpeed: 1
 --- !u!114 &8719555445737529985
 MonoBehaviour:
   m_ObjectHideFlags: 0

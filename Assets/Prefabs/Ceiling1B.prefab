@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OffTime: 20
+  CanTurnOn: 1
 --- !u!208 &3382082335257374634
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -235,7 +236,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 0.04, y: 0.02, z: 0.04}
+  m_Extents: {x: 0.03, y: 0.035, z: 0.03}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1

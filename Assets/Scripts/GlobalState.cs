@@ -56,14 +56,15 @@ public class GlobalState : State
 		if (stateMachine.CurrentState.GetType() != typeof(Chase))
 		{
 			AngerLevel += Level;
+			Debug.Log("Anger Level: " + AngerLevel);
 			switch (AngerLevel)
 			{
 				case 0:
 					break;
-				case 1: case 2:
+				case 1:
 					Transition(stateMachine.CurrentState, "Rotate");
 					break;
-				case var x when (x > 4 && Vector3.Distance(enemyReferences.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 15):
+				case var x when (x > 3 && Vector3.Distance(enemyReferences.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 7):
 					Transition(stateMachine.CurrentState, "Chase");
 					break;
 				default:
