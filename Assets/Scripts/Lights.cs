@@ -7,6 +7,7 @@ public class Lights : MonoBehaviour
 {
 	public float OffTime = 20;
 	public bool CanTurnOn = true;
+	public bool isOn = true;
 
 	public void Turnoff()
 	{
@@ -16,12 +17,14 @@ public class Lights : MonoBehaviour
 			timer.OnTimerEnded += OnTimerEnded;
 			transform.GetChild(0).gameObject.SetActive(true);
 			GetComponent<NavMeshObstacle>().enabled = false;
+			GetComponent<Light>().intensity = 0;
+			isOn = false;
 		}
 	}
 
 	void OnTimerEnded()
 	{
-		if (CanTurnOn) {gameObject.GetComponent<Animation>().Play(); GetComponent<NavMeshObstacle>().enabled = true;}
+		if (CanTurnOn) {gameObject.GetComponent<Animation>().Play(); GetComponent<NavMeshObstacle>().enabled = true; isOn = true;}
 		
 	}
 }

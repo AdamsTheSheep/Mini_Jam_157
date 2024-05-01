@@ -64,7 +64,7 @@ public class GlobalState : State
 				case 1:
 					Transition(stateMachine.CurrentState, "Rotate");
 					break;
-				case var x when (x > 3 && Vector3.Distance(enemyReferences.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 7):
+				case var x when (x > 3 && Vector3.Distance(enemyReferences.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 10):
 					Transition(stateMachine.CurrentState, "Chase");
 					break;
 				default:

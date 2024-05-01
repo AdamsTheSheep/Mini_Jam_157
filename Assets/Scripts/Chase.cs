@@ -9,7 +9,7 @@ public class Chase : State
 	Timer timer;
 	public float ChaseDistance;
 	public float ChaseSpeed;
-	public float AttackDistance = 3;
+	public float AttackDistance = 4;
 	bool CanAttack;
 	Timer AttackCooldown;
 
@@ -57,7 +57,7 @@ public class Chase : State
 			}
 		}
 
-		if (Vision() && CanAttack)
+		if (Vision(AttackDistance) && CanAttack)
 		{
 			enemyReferences.animator.speed = 1f;
 			enemyReferences.animator.SetInteger("CurrentState", ((int)EntityAnimController.States.Attack));
@@ -67,7 +67,7 @@ public class Chase : State
 			AttackCooldown.OnTimerEnded += OnCoolDownEnded;
 		}
 
-		if (EntityAnimController.isAttacking && Vector3.Distance(enemyReferences.transform.position, player.transform.position) < 2)
+		if (EntityAnimController.isAttacking && Vision(AttackDistance - 1))
 		{
 			PlayerUI.GameLost();
 		}
@@ -104,13 +104,13 @@ public class Chase : State
 		lights[rand].GetComponent<Lights>().CanTurnOn = false;
 	}
 
-	bool Vision()
+	bool Vision(float distance)
 	{
 		for (float i = -180 / 2; i < 180 / 2; i++)
 		{
 			RaycastHit ray;
-			Physics.Raycast(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward,out ray, AttackDistance);
-			Debug.DrawRay(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward * AttackDistance, Color.yellow);
+			Physics.Raycast(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward,out ray, distance);
+			Debug.DrawRay(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward * distance, Color.yellow);
 			if (ray.collider && ray.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
 			{
 				return true;
