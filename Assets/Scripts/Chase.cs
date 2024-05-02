@@ -47,7 +47,7 @@ public class Chase : State
 
 	public override void StateUpdate()
 	{
-		base.StateFixedUpdate();
+		base.StateUpdate();
 		var lights = GameObject.FindGameObjectsWithTag("Light");
 		foreach (var light in lights)
 		{
@@ -61,6 +61,7 @@ public class Chase : State
 		{
 			enemyReferences.animator.speed = 1f;
 			enemyReferences.animator.SetInteger("CurrentState", ((int)EntityAnimController.States.Attack));
+			EntityAnimController.isAttacking = true;
 			CanAttack = false;
 			monsterAudio.PlayAttack();
 			AttackCooldown = Timer.CreateTimer(gameObject,3,false,true);

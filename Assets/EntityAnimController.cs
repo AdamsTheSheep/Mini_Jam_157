@@ -32,8 +32,9 @@ public class EntityAnimController : MonoBehaviour
 			case Chase:
 				if (EntityAnimController.isAttacking) break;
 				references.animator.speed = 2f;
-				references.animator.SetInteger("CurrentState", ((int)States.Move));
+				references.animator.SetInteger("CurrentState", ((int)EntityAnimController.States.Move));
 				break;
 		}
+		if (references.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !references.animator.IsInTransition(0) && isAttacking == true) isAttacking = false;
     }
 }
