@@ -61,9 +61,6 @@ public class GlobalState : State
 			{
 				case 0:
 					break;
-				case 1:
-					Transition(stateMachine.CurrentState, "Rotate");
-					break;
 				case var x when (x > 3 && Vector3.Distance(enemyReferences.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 10):
 					Transition(stateMachine.CurrentState, "Chase");
 					break;
@@ -80,12 +77,9 @@ public class GlobalState : State
 		for (float i = -VisionRangeAngle / 2; i < VisionRangeAngle / 2; i++)
 		{
 			RaycastHit ray;
-			Physics.Raycast(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward,out ray, VisionDistance);
-			Debug.DrawRay(transform.position,Quaternion.AngleAxis(i, Vector3.up) * transform.forward * VisionDistance, Color.red);
-			if (ray.collider && ray.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
-			{
-				return true;
-			}
+			Physics.Raycast(transform.position,Quaternion.AngleAxis(i, Vector3.up) * enemyReferences.ParentTransform.forward,out ray, VisionDistance);
+			Debug.DrawRay(transform.position,Quaternion.AngleAxis(i, Vector3.up) * enemyReferences.ParentTransform.forward * VisionDistance, Color.red);
+			if (ray.collider && ray.collider.gameObject.layer == LayerMask.NameToLayer("Player")) {return true;}
 		}
 		return false;
 	}
