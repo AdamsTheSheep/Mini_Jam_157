@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class InteractableSwitch : MonoBehaviour, IInteractable
 {
-	[SerializeField] GameObject itemToSwitch;
 
-	public void Interact()
+	public virtual void Interact()
 	{
 		Debug.Log($"Interacted with {gameObject.name}");
-		itemToSwitch.SetActive(!itemToSwitch.activeSelf);
 		PlayerUI.PlaySound(gameObject,transform.position);
 	}
 
