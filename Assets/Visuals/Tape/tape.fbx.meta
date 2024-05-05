@@ -3,12 +3,7 @@ guid: 71c492b0bd9df5843a57149bb183398a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tape
-    second: {fileID: 2100000, guid: 93fbd397164cacf4b8cb59affc60fb24, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

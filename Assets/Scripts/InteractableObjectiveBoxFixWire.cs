@@ -46,7 +46,7 @@ public class InteractableObjectiveBoxFixWire : MonoBehaviour, IInteractable
 		PlayerUI.instance.interactableHoldProgressImage.fillAmount = 0f;
 		PlayerUI.instance.interactableHoldProgressImage.gameObject.SetActive(true);
 		GetComponent<SpatializedAudio>().PlaySound();
-		PlayerUI.PlaySound(gameObject,transform.position);
+
 		if (!string.IsNullOrEmpty(holdInteractionText))
 		{
 			PlayerUI.instance.holdInteractionText.gameObject.SetActive(true);

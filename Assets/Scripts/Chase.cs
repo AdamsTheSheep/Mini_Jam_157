@@ -57,20 +57,19 @@ public class Chase : State
 			}
 		}
 
-		if ((Vision(AttackDistance) && CanAttack) || (CanAttack && Vector3.Distance(enemyReferences.transform.position,player.transform.position) <= 0.4))
+		if (Vision(AttackDistance) && CanAttack)
 		{
 			enemyReferences.animator.speed = 1f;
 			enemyReferences.animator.SetInteger("CurrentState", ((int)EntityAnimController.States.Attack));
-			EntityAnimController.isAttacking = true;
 			CanAttack = false;
 			monsterAudio.PlayAttack();
 			AttackCooldown = Timer.CreateTimer(gameObject,3,false,true);
 			AttackCooldown.OnTimerEnded += OnCoolDownEnded;
 		}
 
-		if (EntityAnimController.isAttacking && Vision(AttackDistance - 1)|| (EntityAnimController.isAttacking && Vector3.Distance(enemyReferences.transform.position,player.transform.position) <= 0.4))
+		if (EntityAnimController.isAttacking && Vision(AttackDistance - 1))
 		{
-			GameObject.FindAnyObjectByType<PlayerUI>().GameLost();
+			PlayerUI.GameLost();
 		}
 		enemyReferences.navMeshAgent.destination = player.transform.position;
 	}

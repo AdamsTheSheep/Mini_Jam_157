@@ -18,13 +18,13 @@ public class Suspicious : State
 	public override void Enter()
 	{
 		base.Enter();
-		InvokeRepeating("MonsterAudioPlaySteps", 0, .562f);
+		InvokeRepeating("MonsterAudioPlaySteps", 0, .6f);
 		idleTimerCoroutine = StartCoroutine(MonsterAudioPlayIdle());
 		enemyReferences.navMeshAgent.speed = Speed;
 		enemyReferences.navMeshAgent.destination = SoundPosition;
 		if (timer == null)
 		{
-			timer = Timer.CreateTimer(gameObject,20,false,true);
+			timer = Timer.CreateTimer(gameObject,15,false,true);
 			timer.OnTimerEnded += OnTimerEnded;
 		}
 	}
@@ -44,8 +44,7 @@ public class Suspicious : State
 	public override void StateUpdate()
 	{
 		base.StateUpdate();
-		Debug.Log(Vector3.Distance(enemyReferences.Foot.position, SoundPosition));
-		if (Vector3.Distance(enemyReferences.Foot.position, SoundPosition) < 1.2)
+		if (Vector3.Distance(enemyReferences.ParentTransform.position, SoundPosition) < 1)
 		{
 			enemyReferences.navMeshAgent.isStopped = true;
 			enemyReferences.navMeshAgent.ResetPath();
@@ -67,7 +66,6 @@ public class Suspicious : State
 		enemyReferences.navMeshAgent.ResetPath();
 		StopCoroutine(idleTimerCoroutine);
 		CancelInvoke();
-		Component.Destroy(timer);
 
 	}
 

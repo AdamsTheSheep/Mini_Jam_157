@@ -28,6 +28,7 @@ public class AudioManager : MonoBehaviour
 	private void Awake()
 	{
 		if (instance) return;
+		DontDestroyOnLoad(gameObject);
 
 		instance = this;
 		if(randomAmbiantSounds.Count > 0) StartCoroutine(PlayAmbianceAtRandomTime());

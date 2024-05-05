@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -26,13 +25,14 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject winScreen;
     [SerializeField] AudioClip[] playerDeathSounds;
-	public GameManager.Event GameLost;
+	public static GameManager.Event GameLost;
     Timer timer;
 
     private void Awake()
     {
         if (instance) Destroy(instance.gameObject);
         instance = this;
+
         GameManager.ResetStaticValues();
 
         Time.timeScale = 1f;
@@ -120,9 +120,7 @@ public class PlayerUI : MonoBehaviour
 
     public static void ReloadScene()
     {
-        SceneManager.LoadScene(2, LoadSceneMode.Single);
-		if (instance) Destroy(instance.gameObject);
-        instance = GameObject.FindAnyObjectByType<PlayerUI>();
+        SceneManager.LoadScene(2);
     }
 
     public static void CheckAllFixed()

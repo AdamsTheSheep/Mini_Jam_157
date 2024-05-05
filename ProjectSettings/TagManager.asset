@@ -9,7 +9,6 @@ TagManager:
   - Enemy
   - Light
   - Door
-  - UI
   layers:
   - Default
   - TransparentFX
