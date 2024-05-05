@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 156b69f975292314bbce812541f0227e
+=======
+<<<<<<<< HEAD:Assets/Visuals/Non-essentials/Crate.meta
+<<<<<<< HEAD
+guid: 814bc8113918a4a2c81794858721699f
+=======
+guid: 7d7e5e84a42d22c49882ea9f5f70b77d
+>>>>>>> 5e75bbf18e72bba488185ae139e17e045180e95f
+========
+guid: 29de067a91cb5d84790007032021bfb3
+>>>>>>>> parent of 75e5da1 (reworked sfx):Assets/Audio/MUSIC.meta
+>>>>>>> parent of 75e5da1 (reworked sfx)
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

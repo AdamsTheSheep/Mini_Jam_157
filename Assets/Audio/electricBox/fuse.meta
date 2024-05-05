@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: fc3d1eb1bc51da14a84e9961fb328d1f
+=======
+guid: 70ce2c1b3c3e1f04da824bf05232d56f
+>>>>>>> parent of 75e5da1 (reworked sfx)
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
