@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableLightSwitch : InteractableSwitch
+public class InteractableLightSwitch : InteractableSwitch, IInteractable
 {
 	bool State = true;
 	public GameObject[] Lights;
