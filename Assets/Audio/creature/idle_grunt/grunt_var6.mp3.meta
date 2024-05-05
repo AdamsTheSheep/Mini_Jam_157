@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 9cf1608e149934d47b266b86c7280111
-=======
-guid: b9c898ebf28e92a46931f7f08e0a909d
->>>>>>> parent of 75e5da1 (reworked sfx)
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7

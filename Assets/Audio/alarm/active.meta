@@ -1,17 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: dac5a0e09da8ca0468bd7968e435b58f
-=======
-<<<<<<<< HEAD:Assets/Visuals/Non-essentials/Pages.meta
-<<<<<<< HEAD
-guid: 35a76802c29134593be072f3bf3fd12e
-=======
-guid: 8f488289131855d449f80d2e8df02f78
->>>>>>> 5e75bbf18e72bba488185ae139e17e045180e95f
-========
-guid: 187c08b72fb93644c9b57ab56ccb724a
->>>>>>>> parent of 75e5da1 (reworked sfx):Assets/Audio/alarm/active.meta
->>>>>>> parent of 75e5da1 (reworked sfx)
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
