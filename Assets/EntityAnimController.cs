@@ -6,10 +6,14 @@ public class EntityAnimController : MonoBehaviour
 {
 	public enum States {Idle1, Idle2, Move, Attack}
 	public EnemyReferences references;
-	public static bool isAttacking;
+	public static bool isAttacking = false;
+
+	void Start()
+	{
+		isAttacking = false;
+	}
     void Update()
     {
-		
         switch (references.stateMachine.CurrentState)
 		{
 			case FindState:
@@ -22,14 +26,15 @@ public class EntityAnimController : MonoBehaviour
 				references.animator.SetInteger("CurrentState", ((int)States.Move));
 				break;
 			case Suspicious:
-				references.animator.speed = 1.5f;
+				references.animator.speed = 1.25f;
 				references.animator.SetInteger("CurrentState", ((int)States.Move));
 				break;
 			case Chase:
 				if (EntityAnimController.isAttacking) break;
 				references.animator.speed = 2f;
-				references.animator.SetInteger("CurrentState", ((int)States.Move));
+				references.animator.SetInteger("CurrentState", ((int)EntityAnimController.States.Move));
 				break;
 		}
+		if (references.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !references.animator.IsInTransition(0) && isAttacking == true) isAttacking = false;
     }
 }

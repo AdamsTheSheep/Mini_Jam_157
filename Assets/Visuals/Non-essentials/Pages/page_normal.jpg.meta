@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Visuals/Non-essentials/Pages/page_normal.jpg.meta
 guid: 63dea998b039d1e4d8dcd9d57b5134ff
-=======
-guid: 6341c43c42551441586e995e8461f8fb
->>>>>>> parent of 2f7c5f7 (reworked sfx):Assets/Visuals/Non-essentials/Pages/Page_normal.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -11,11 +7,7 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
-<<<<<<< HEAD:Assets/Visuals/Non-essentials/Pages/page_normal.jpg.meta
     sRGBTexture: 0
-=======
-    sRGBTexture: 1
->>>>>>> parent of 2f7c5f7 (reworked sfx):Assets/Visuals/Non-essentials/Pages/Page_normal.png.meta
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -62,11 +54,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-<<<<<<< HEAD:Assets/Visuals/Non-essentials/Pages/page_normal.jpg.meta
   textureType: 1
-=======
-  textureType: 0
->>>>>>> parent of 2f7c5f7 (reworked sfx):Assets/Visuals/Non-essentials/Pages/Page_normal.png.meta
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1

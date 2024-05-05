@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 584d73ed4c3c26848afbdfac45b8e054
-=======
-guid: 7c40a35bf3d01427fab7cbd4aae7aab5
->>>>>>> parent of 2f7c5f7 (reworked sfx)
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -11,11 +7,7 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
-<<<<<<< HEAD
     sRGBTexture: 0
-=======
-    sRGBTexture: 1
->>>>>>> parent of 2f7c5f7 (reworked sfx)
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -62,11 +54,7 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-<<<<<<< HEAD
   textureType: 1
-=======
-  textureType: 0
->>>>>>> parent of 2f7c5f7 (reworked sfx)
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1

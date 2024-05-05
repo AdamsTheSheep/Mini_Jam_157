@@ -191,9 +191,9 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   loopClips: []
   soundBank1:
-  - {fileID: 8300000, guid: 479c73d2f94216f41ad331b124d5dd97, type: 3}
+  - {fileID: 8300000, guid: 58598827ccdd7ee498d58ab61d1cd62b, type: 3}
   soundBank2:
-  - {fileID: 8300000, guid: a39d344b4eb2ed347addefa00b05066c, type: 3}
+  - {fileID: 8300000, guid: ef0b1bb5ebcdea449bc099c5fddbac95, type: 3}
 --- !u!1 &2880571034149921075
 GameObject:
   m_ObjectHideFlags: 0
