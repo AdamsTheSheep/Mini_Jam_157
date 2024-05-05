@@ -239,5 +239,5 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   loopClips: []
   soundBank1:
-  - {fileID: 8300000, guid: 91de65e259e29504ebc20c5e2a8efa3c, type: 3}
+  - {fileID: 8300000, guid: 692dafb0b643ab743afcc36d9d745718, type: 3}
   soundBank2: []

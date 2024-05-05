@@ -253,10 +253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3970d42f1d10584cb1544eedc1071e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: -3483205679103367799, guid: 5b7cc62b7f2ac294e8b3f77450d0e3e7,
-    type: 3}
+  audioSource: {fileID: 1316353285490040112}
   loopClips: []
   soundBank1:
-  - {fileID: 8300000, guid: 58598827ccdd7ee498d58ab61d1cd62b, type: 3}
+  - {fileID: 8300000, guid: 479c73d2f94216f41ad331b124d5dd97, type: 3}
   soundBank2:
-  - {fileID: 8300000, guid: ef0b1bb5ebcdea449bc099c5fddbac95, type: 3}
+  - {fileID: 8300000, guid: a39d344b4eb2ed347addefa00b05066c, type: 3}

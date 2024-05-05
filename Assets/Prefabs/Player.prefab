@@ -779,9 +779,14 @@ MonoBehaviour:
   audioSource: {fileID: 8420295206016052044}
   loopClips: []
   soundBank1:
-  - {fileID: 8300000, guid: 7e41c46d297954443868078a893faaee, type: 3}
-  - {fileID: 8300000, guid: 9fd72b8cb9abe934ab4e7eb57ad7edc1, type: 3}
-  - {fileID: 8300000, guid: 17db87723e20bc146900ae04ba01e7b2, type: 3}
-  - {fileID: 8300000, guid: 8730ea1660c1eb24c8b68737287045b0, type: 3}
-  - {fileID: 8300000, guid: f082aa9e71abca14aad8960895776dda, type: 3}
+  - {fileID: 8300000, guid: 2f1f99ae6ffdb504bbd1d95407e55c6b, type: 3}
+  - {fileID: 8300000, guid: 17fcacb7f11db2a428410d236eb20b18, type: 3}
+  - {fileID: 8300000, guid: 79d710d9ed6e094479ee7d27d2407dce, type: 3}
+  - {fileID: 8300000, guid: 3c07ea927e17f9f4aaee0cf9d4e454fd, type: 3}
+  - {fileID: 8300000, guid: ce940a28c5c437e449ea415254670e22, type: 3}
+  - {fileID: 8300000, guid: 88e8f8b8dd6eb754eb0507a490ee6150, type: 3}
+  - {fileID: 8300000, guid: 7adf354d198a1704cad57fe3c3b86a08, type: 3}
+  - {fileID: 8300000, guid: 0e8b6364352bce0498eb20af3e90569f, type: 3}
+  - {fileID: 8300000, guid: c0ed599a18e2a39478889773b2e5f909, type: 3}
+  - {fileID: 8300000, guid: 10bc6c8148abf61479a464e51845733e, type: 3}
   soundBank2: []

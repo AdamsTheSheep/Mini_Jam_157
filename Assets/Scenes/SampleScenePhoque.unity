@@ -229,6 +229,21 @@ PrefabInstance:
       propertyPath: VisionRangeAngle
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 6925644492137942375, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+        type: 3}
+      propertyPath: soundBank2.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 949b9e4d4fc1db649b2081ae6c6190bb, type: 3}
+    - target: {fileID: 6925644492137942375, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+        type: 3}
+      propertyPath: soundBank2.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: db8b59db37ccf2049a2e3e1fc0063283, type: 3}
+    - target: {fileID: 6925644492137942375, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+        type: 3}
+      propertyPath: soundBank2.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: e641cf76bba5aa5419a93e8dd8f472ec, type: 3}
     - target: {fileID: 7465879573707204251, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -245,7 +260,8 @@ PrefabInstance:
       value: 4.573
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 694387905947204248, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7, type: 3}
