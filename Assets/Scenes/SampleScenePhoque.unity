@@ -139,6 +139,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 165639025203211560, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1164875442828589683, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
         type: 3}
       propertyPath: m_UpdateMode
@@ -219,6 +224,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5460648907177628209, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6425732107154239031, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
         type: 3}
       propertyPath: ParentTransform
@@ -249,6 +259,12 @@ PrefabInstance:
       propertyPath: soundBank2.Array.data[11]
       value: 
       objectReference: {fileID: 8300000, guid: e641cf76bba5aa5419a93e8dd8f472ec, type: 3}
+    - target: {fileID: 7037173043370659820, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+        type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 5601e8f5eb481e840a7d2b7a12abce71,
+        type: 2}
     - target: {fileID: 7465879573707204251, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -263,6 +279,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 4.573
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667277743054258763, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888432996176485905, guid: bac5ce8eda1f89f4c8c0da4b5581f2e7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
