@@ -47,6 +47,7 @@ public class MonsterAudio : MonoBehaviour
 		if (clips.Length <= 0) return;
 		AudioClip clip = clips[Random.Range(0, clips.Length)];
 		audioSource.PlayOneShot(clip);
+		Debug.Log(clip.name);
 	}
 
 	public void PlayLoop()
