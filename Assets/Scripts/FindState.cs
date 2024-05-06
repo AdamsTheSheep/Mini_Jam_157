@@ -16,13 +16,13 @@ public class FindState : State
 
 	void OnTimerEnded()
 	{
-		var rand = Random.Range(0,7);
+		var rand = Random.Range(0,10);
 		switch (rand)
 		{
 			case 0:
 				Transition(this,"Rotate");
 				break;
-			case 1: case 2:
+			case 1: case 2: case 3: case 4:
 				Transition(this, "Disrupt");
 				break;
 			default:

@@ -146,7 +146,7 @@ public class PlayerUI : MonoBehaviour
 	public static void PlaySound(GameObject gameObject, Vector3 pos)
 	{
 		if (!CanSendSound) return;
-		GlobalState.TriggerSuspicion(2, pos);
+		GlobalState.TriggerSuspicion(2, GameObject.FindGameObjectWithTag("Player").transform.position);
 		var timer = Timer.CreateTimer(gameObject, 3,false, true);
 		timer.OnTimerEnded += OnTimerEnded;
 		CanSendSound = false;

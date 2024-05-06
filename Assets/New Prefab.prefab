@@ -3960,6 +3960,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeadMonster (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5329219755104835125, guid: e5b55177d80a18c42b21d0c7c5695617,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 9065793124916742546, guid: e5b55177d80a18c42b21d0c7c5695617,
         type: 3}
       propertyPath: m_Color.b
@@ -11721,8 +11726,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3041783387867528190, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
+      propertyPath: m_Height
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3041783387867528190, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3041783387867528190, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
+        type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3041783387867528190, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
+        type: 3}
       propertyPath: m_AutoTraverseOffMeshLink
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3099919315898874810, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
@@ -11742,7 +11762,7 @@ PrefabInstance:
     - target: {fileID: 6294759749969572306, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
       propertyPath: ChaseDistance
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6294759749969572306, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
@@ -11752,7 +11772,7 @@ PrefabInstance:
     - target: {fileID: 6322532592513189217, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.51
+      value: 4.14
       objectReference: {fileID: 0}
     - target: {fileID: 6322532592513189217, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
@@ -11762,7 +11782,7 @@ PrefabInstance:
     - target: {fileID: 6322532592513189217, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.41
+      value: 4.573
       objectReference: {fileID: 0}
     - target: {fileID: 6322532592513189217, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
@@ -11804,10 +11824,20 @@ PrefabInstance:
       propertyPath: RoamingTime
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 6817347543758203330, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7900944690088814421, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
         type: 3}
       propertyPath: VisionRangeAngle
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8719555445737529985, guid: 4089bb3978f707a4c878e3ea03e0ca0e,
+        type: 3}
+      propertyPath: NumberToDisrupt
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12100,7 +12130,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 5a909a60b8a240846b33833e742e81c4,
+      objectReference: {fileID: 23800000, guid: 5601e8f5eb481e840a7d2b7a12abce71,
         type: 2}
     - target: {fileID: 6211527938184973507, guid: 3a7c4324b1a8ae846a88a6f1f4dbee09,
         type: 3}
@@ -13819,6 +13849,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeadMonster (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5329219755104835125, guid: e5b55177d80a18c42b21d0c7c5695617,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13907,6 +13942,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DeadMonster (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329219755104835125, guid: e5b55177d80a18c42b21d0c7c5695617,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9065793124916742546, guid: e5b55177d80a18c42b21d0c7c5695617,
         type: 3}
@@ -18607,6 +18647,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeadMonster (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5329219755104835125, guid: e5b55177d80a18c42b21d0c7c5695617,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 9065793124916742546, guid: e5b55177d80a18c42b21d0c7c5695617,
         type: 3}
       propertyPath: m_Color.b
@@ -20906,7 +20951,7 @@ PrefabInstance:
     - target: {fileID: 3281892282258924321, guid: c846a071ce85c2348afb3c2f6cf02289,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 3281892282258924321, guid: c846a071ce85c2348afb3c2f6cf02289,
         type: 3}
@@ -20916,7 +20961,7 @@ PrefabInstance:
     - target: {fileID: 3281892282258924321, guid: c846a071ce85c2348afb3c2f6cf02289,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 17
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 3281892282258924321, guid: c846a071ce85c2348afb3c2f6cf02289,
         type: 3}
